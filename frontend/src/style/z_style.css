@@ -1,4 +1,359 @@
-body{
+body {
     margin: 0;
     padding: 0;
+    background-color: #0f0f0f;
+    color: white;
+}
+
+.z_header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 80px;
+
+    background-color: #000;
+    /* PURE BLACK */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    color: white;
+
+    transition: width 0.3s ease;
+    overflow: hidden;
+    z-index: 100;
+
+    /* LEFT → RIGHT SHADOW */
+    box-shadow:
+        12px 0 25px rgba(0, 0, 0, 0.9),
+        4px 0 10px rgba(0, 0, 0, 0.6);
+}
+
+
+
+.z_header:hover {
+    width: 250px;
+}
+
+.z_logo {
+    font-size: 2rem;
+    margin-bottom: 7rem;
+}
+
+.z_menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.z_menu-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    /* color: #fff !important; */
+    padding: 15px 25px;
+    transition: color 0.3s, background-color 0.3s;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.z_menu-item:hover {
+    /* color: white; */
+    background-color: #333;
+}
+
+.z_menu-item.z_active {
+    color: white;
+    background-color: #222;
+}
+
+.z_menu-item-name {
+    margin-left: 20px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    font-size: 1rem;
+}
+
+.z_header:hover .z_menu-item-name {
+    opacity: 1;
+    transition-delay: 0.1s;
+}
+
+.z_logout {
+    margin-top: auto;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.z_logout-item {
+    color: #ff6b6b;
+}
+
+.z_logout-item:hover {
+    background-color: #3a1f1f;
+    color: #ff8080;
+}
+
+/* Content starts after sidebar */
+.app-content {
+    margin-left: 80px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    background-color: #000;
+}
+
+/* Mobile / Tablet bottom navbar */
+@media (max-width: 768px) {
+    .app-content {
+        margin-left: 0;
+        margin-bottom: 70px;
+        /* space for bottom bar */
+    }
+}
+
+/* Schedule.js start */
+
+.z_schedule {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    color: #fff;
+}
+
+/* SEARCH */
+.z_search_box input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: none;
+    background: #111;
+    color: #ccc;
+    outline: none;
+}
+
+/* FILTERS */
+.z_filter_chips {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    overflow-x: auto;
+}
+
+.z_chip {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #1a1a1a;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.z_chip_active {
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+}
+
+/* DAY SECTION */
+.z_day_section {
+    margin-top: 25px;
+}
+
+.z_day_section h3 {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+/* MATCH CARD */
+.z_match_card {
+    background: linear-gradient(180deg, #141414, #0c0c0c);
+    border-radius: 14px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+
+.z_match_title {
+    font-size: 0.8rem;
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+.z_match_teams {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.z_team_row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.z_score {
+    font-weight: bold;
+}
+
+.z_date_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LIVE BUTTON */
+.z_live_btn {
+    margin-top: 12px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid #FF4444;
+    color: #FF4444;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* TIME */
+.z_time {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.z_team {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.z_flag {
+    width: 22px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+/* =========================
+   CALENDAR CONTAINER
+========================= */
+.z_calendar_wrapper {
+    background: #0b0b0b;
+    padding: 12px;
+    border-bottom: 1px solid #222;
+}
+
+/* =========================
+     REACT CALENDAR RESET
+  ========================= */
+.react-calendar {
+    width: 100%;
+    background: #0b0b0b;
+    border: none;
+    font-family: inherit;
+}
+
+/* HEADER (MONTH + ARROWS) */
+.react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.react-calendar__navigation button {
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 6px 10px;
+}
+
+.react-calendar__navigation button:hover {
+    background: #1c1c1c;
+}
+
+/* WEEK DAYS */
+.react-calendar__month-view__weekdays {
+    text-align: center;
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 6px;
+}
+
+.react-calendar__month-view__weekdays abbr {
+    text-decoration: none;
+}
+
+/* DATE CELLS */
+.react-calendar__tile {
+    background: transparent;
+    color: #fff;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.react-calendar__tile:hover {
+    background: #1f1f1f;
+}
+
+/* TODAY DATE */
+.react-calendar__tile--now {
+    background: #222;
+    color: #fff;
+    border-radius: 8px;
+}
+
+/* SELECTED DATE */
+.react-calendar__tile--active {
+    background: #FF4444 !important;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* DISABLED DATES */
+.react-calendar__tile--disabled {
+    color: #555;
+}
+
+/* REMOVE DOUBLE NAV BUTTONS */
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+    display: none;
+}
+
+.z_sticky_top {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #000;
+    /* black theme */
+    padding: 12px 16px;
+    border-bottom: 1px solid #222;
+}
+
+.z_calendar_wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    background: #111;
+    border-radius: 10px;
+    margin-top: 6px;
+}
+
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .z_schedule {
+        padding: 15px;
+    }
 }
