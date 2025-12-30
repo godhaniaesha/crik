@@ -20,24 +20,15 @@ function App() {
       <Header />
       <div className="app-content">
         <Routes>
-          {/* Loading Page */}
-          {/* <Route path="/" element={<Loading />} /> */}
-          {/* <Route path="/getstart" element={<Getstart />} />
-        <Route path="/slide" element={<Heroslide />} /> */}
+          <Route path="/" element={<Loading />} />
           <Route path="/schedule" element={<Schedule />} />
-
           <Route path="/MobileLogin" element={<MobileLogin />} />
           <Route path="/verify-otp" element={<VerifyOtp />} />
           <Route path="/LiveUpc" element={<LiveUpc />} />
           <Route path="/HighlightsSlider" element={<HighlightsSlider />} />
-
-          <Route path="/" element={<Loading />} />
           <Route path="/getstart" element={<Getstart />} />
           <Route path="/slide" element={<Heroslide />} />
           <Route path="/browse" element={<BrowseSeries />} />
-
-          {/* Future routes example */}
-          {/* <Route path="/home" element={<Home />} /> */}
         </Routes>
       </div>
     </Router>
