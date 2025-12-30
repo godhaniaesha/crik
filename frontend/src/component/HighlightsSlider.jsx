@@ -50,7 +50,7 @@ const d_highlights = [
 function HighlightsSlider() {
   const d_sliderRef = useRef(null);
 
-  const d_scrollLeft = () => {
+  const d_scrollLeft = () => {0
     d_sliderRef.current.scrollBy({
       left: -420,
       behavior: "smooth",
@@ -106,6 +106,5 @@ function HighlightsSlider() {
     </div>
   );
 }
-
 
 export default HighlightsSlider;
