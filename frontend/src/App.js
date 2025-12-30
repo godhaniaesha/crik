@@ -28,6 +28,10 @@ function App() {
           <Route path="/getstart" element={<Getstart />} />
 
           <Route path="/main" element={<Main />} />
+          <Route path="/LiveUpc" element={<LiveUpc />} />
+          <Route path="/HighlightsSlider" element={<HighlightsSlider />} />
+          <Route path="/slide" element={<Heroslide />} />
+          <Route path="/browse" element={<BrowseSeries />} />
         </Routes>
       </div>
     </Router>

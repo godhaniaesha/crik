@@ -27,7 +27,7 @@ body {
 
     /* LEFT → RIGHT SHADOW */
     box-shadow:
-        12px 0 25px rgba(0, 0, 0, 0.9),
+        4px 0 12px rgba(0, 0, 0, 0.9),
         4px 0 10px rgba(0, 0, 0, 0.6);
 }
 
@@ -109,7 +109,7 @@ body {
 /* Mobile / Tablet bottom navbar */
 @media (max-width: 768px) {
     .app-content {
-        margin-left: 0;
+        margin-left: 80px;
         margin-bottom: 70px;
         /* space for bottom bar */
     }
