@@ -253,7 +253,7 @@ body {
 .x_hero_slide_overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .x_hero_slide_content {
