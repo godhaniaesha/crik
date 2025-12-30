@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import MobileLogin from "./component/MobileLogin";
+import VerifyOtp from "./component/VerifyOtp";
+import LiveUpc from "./component/LiveUpc";
+import HighlightsSlider from "./component/HighlightsSlider";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Routes>
+        <Route path="/MobileLogin" element={<MobileLogin />} />
+        <Route path="/verify-otp" element={<VerifyOtp />} />
+        <Route path="/LiveUpc" element={<LiveUpc />} />
+        <Route path="/HighlightsSlider" element={<HighlightsSlider />} />
+      </Routes>
   );
 }
 

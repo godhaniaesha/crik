@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+:root {
+  --x-bg-dark: #000000;
+  --x-text-white: #ffffff;
+  --x-red-main: #FF4444;
+  --x-red-light: rgba(255, 68, 68, 0.3);
+}

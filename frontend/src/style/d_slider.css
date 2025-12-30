@@ -1,0 +1,295 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --d-bg-dark: #000;
+  --d-card-bg: #111;
+  --d-text-white: #fff;
+  --d-text-muted: #aaa;
+  --d-red: #ff3b3b;
+  --d-yellow: #ffd400;
+}
+
+/* Wrapper */
+.d_slider_wrapper {
+  background: var(--d-bg-dark);
+  padding: 30px 20px;
+  color: var(--d-text-white);
+}
+
+/* Header */
+.d_slider_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+/* Title */
+.d_slider_title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Arrows */
+.d_slider_arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.d_slider_arrows button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1c1c1c;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.d_slider_arrows button:hover {
+  background: var(--d-red);
+}
+
+/* Slider */
+.d_slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.d_slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.d_match_card {
+  min-width: 340px;
+  background: linear-gradient(145deg, #2c2c2c, #1e1c1c);
+  border-radius: 16px;
+  padding: 18px;
+  scroll-snap-align: start;
+}
+
+/* Header */
+.d_match_header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.d_status {
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.d_live {
+  color: var(--d-red);
+}
+
+.d_break {
+  color: var(--d-yellow);
+}
+
+.d_live_dot {
+  font-size: 8px;
+}
+
+.d_match_title {
+  font-size: 14px;
+  color: var(--d-text-muted);
+}
+
+/* Body */
+.d_match_body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.d_team {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.d_flag {
+  font-size: 22px;
+  margin-right: 6px;
+}
+
+.d_team_code {
+  font-weight: 600;
+}
+
+.d_score {
+  font-weight: 600;
+}
+
+/* Footer */
+.d_match_footer {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--d-text-muted);
+}
+
+.d_flag {
+  width: 26px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 3px;
+  margin-right: 6px;
+}
+
+.d_team_left {
+  display: flex;
+  align-items: center;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .d_match_card {
+    min-width: 280px;
+  }
+
+  .d_slider_title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .d_match_card {
+    min-width: 260px;
+    padding: 14px;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Wrapper */
+.d_highlight_wrapper {
+  background: #000;
+  padding: 24px 20px;
+  color: #fff;
+}
+
+/* Header */
+.d_highlight_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.d_highlight_heading {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* Arrows */
+.d_highlight_arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.d_highlight_arrows button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #1c1c1c;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.d_highlight_arrows button:hover {
+  background: #e50914;
+}
+
+/* Slider */
+.d_highlight_slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.d_highlight_slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.d_highlight_card {
+  min-width: 320px;
+  cursor: pointer;
+}
+
+/* Thumbnail */
+.d_thumb_wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.d_thumb_img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.d_highlight_card:hover .d_thumb_img {
+  transform: scale(1.06);
+}
+
+/* Duration */
+.d_duration {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+/* Title */
+.d_highlight_title {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .d_highlight_card {
+    min-width: 260px;
+  }
+
+  .d_thumb_img {
+    height: 150px;
+  }
+
+  .d_highlight_heading {
+    font-size: 20px;
+  }
+}
