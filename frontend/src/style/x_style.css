@@ -1,4 +1,466 @@
-body{
+body {
     margin: 0;
     padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+
+:root {
+    --x-bg-dark: #000000;
+    --x-text-white: #ffffff;
+    --x-red-main: #FF4444;
+    --x-red-light: rgba(255, 68, 68, 0.3);
+    --x-white: #ffffff;
+    --x-black: #000000;
+    --x-bg-overlay: rgba(0, 0, 0, 0.3);
+    --x-live-bg: #FF4444;
+}
+
+/* loader  */
+
+.x_loader_container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--x-bg-dark);
+}
+
+.x_loader_text {
+    margin-top: 16px;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--x-text-white);
+    letter-spacing: 1px;
+}
+
+.x_loader_circle {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--x-red-light);
+    border-top: 5px solid var(--x-red-main);
+    border-radius: 50%;
+    animation: x_spin 1s linear infinite;
+    box-sizing: border-box;
+}
+
+@keyframes x_spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Getstart */
+.x_hero_section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    /* horizontally center */
+    align-items: center;
+    /* vertically center */
+    padding: 20px;
+}
+
+.x_hero_overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.60);
+}
+
+.x_hero_content {
+    position: relative;
+    z-index: 2;
+    width: 600px;
+    /* fixed width */
+    max-width: 90%;
+    /* responsive fallback */
+    text-align: center;
+    /* center all text */
+    color: var(--x-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* center children */
+}
+
+.x_hero_subtitle {
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    color: var(--x-white);
+}
+
+.x_hero_text {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: var(--x-white);
+}
+
+.x_hero_btn {
+    background-color: var(--x-white);
+    color: var(--x-black);
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.x_hero_btn:hover {
+    background-color: #e5e5e5;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE STYLES
+   ========================= */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+    .x_hero_content {
+        width: 550px;
+    }
+
+    .x_hero_subtitle {
+        font-size: 38px;
+    }
+
+    .x_hero_text {
+        font-size: 16px;
+    }
+}
+
+/* Small Tablets / Large Phones (≤ 768px) */
+@media (max-width: 768px) {
+    .x_hero_content {
+        width: 500px;
+    }
+
+    .x_hero_subtitle {
+        font-size: 32px;
+    }
+
+    .x_hero_text {
+        font-size: 15px;
+    }
+}
+
+/* Mobile (≤ 480px) */
+@media (max-width: 480px) {
+    .x_hero_content {
+        width: 360px;
+    }
+
+    .x_hero_subtitle {
+        font-size: 28px;
+    }
+
+    .x_hero_text {
+        font-size: 14px;
+    }
+
+    .x_hero_btn {
+        padding: 10px 22px;
+        font-size: 14px;
+    }
+}
+
+/* Small Mobile (≤ 320px) */
+@media (max-width: 320px) {
+    .x_hero_content {
+        width: 300px;
+    }
+
+    .x_hero_subtitle {
+        font-size: 22px;
+    }
+
+    .x_hero_text {
+        font-size: 13px;
+    }
+
+    .x_hero_btn {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+}
+
+/* Heroslide */
+.x_hero_slider {
+    width: 100%;
+}
+
+.x_hero_slide_link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.x_hero_slide {
+    position: relative;
+    height: clamp(60vh, 70vh, 100vh); /* responsive height: min 60vh, ideal 70vh, max 100vh */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+/* Optional: Fallback if clamp not fully supported */
+@media (max-width: 1920px) {
+    .x_hero_slide { height: 70vh; }
+}
+
+@media (max-width: 1366px) {
+    .x_hero_slide { height: 65vh; }
+}
+
+@media (max-width: 1024px) {
+    .x_hero_slide { height: 60vh; }
+}
+
+@media (max-width: 768px) {
+    .x_hero_slide { height: 55vh; }
+}
+
+@media (max-width: 480px) {
+    .x_hero_slide { height: 50vh; }
+}
+
+@media (max-width: 320px) {
+    .x_hero_slide { height: 45vh; }
+}
+
+
+.x_hero_slide_overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.x_hero_slide_content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    width: 400px;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.x_live_badge {
+    background-color: #FF4444;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.x_team_names {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.x_vs_text {
+    margin: 0 8px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #FF4444;
+}
+
+.x_match_score {
+    font-size: 18px;
+    line-height: 1.5;
+}
+.x_hero_slider_container .slick-dots {
+    position: absolute;
+    bottom: 14px !important;    
+}
+
+.x_hero_slider_container .slick-dots li button:before {
+    font-size: 10px !important;
+    color: #fff;
+}
+
+/* Responsive for all screens */
+@media (max-width: 768px) {
+    .x_hero_slide_content {
+        width: 300px;
+        margin-bottom: 30px;
+    }
+
+    .x_team_names {
+        font-size: 24px;
+    }
+
+    .x_vs_text {
+        font-size: 18px;
+    }
+
+    .x_match_score {
+        font-size: 15px;
+    }
+
+    .x_live_badge {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .x_hero_slide_content {
+        width: 260px;
+        margin-bottom: 20px;
+    }
+
+    .x_team_names {
+        font-size: 20px;
+    }
+
+    .x_vs_text {
+        font-size: 16px;
+    }
+
+    .x_match_score {
+        font-size: 14px;
+    }
+
+    .x_live_badge {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .x_hero_slide_content {
+        width: 220px;
+        margin-bottom: 15px;
+    }
+
+    .x_team_names {
+        font-size: 18px;
+    }
+
+    .x_vs_text {
+        font-size: 14px;
+    }
+
+    .x_match_score {
+        font-size: 13px;
+    }
+
+    .x_live_badge {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+}
+
+/* =========================
+   Browse Series (Dark Theme)
+   ========================= */
+
+.x_series_section {
+  width: 100%;
+  padding: 24px 0;
+  background-color: var(--x-black);
+}
+
+.x_series_title {
+  color: var(--x-white);
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 16px 20px;
+}
+
+.x_series_slider {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 0 20px;
+  scroll-behavior: smooth;
+}
+
+.x_series_slider::-webkit-scrollbar {
+  display: none;
+}
+
+.x_series_card {
+  min-width: 180px;
+  height: 100px;         
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  background-color: #111;
+  transition: transform 0.3s ease;
+}
+
+.x_series_card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.x_series_card:hover {
+  transform: scale(1.08);
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 768px) {
+  .x_series_title {
+    font-size: 20px;
+  }
+
+  .x_series_card {
+    min-width: 130px;
+    height: 85px;
+  }
+}
+
+@media (max-width: 480px) {
+  .x_series_title {
+    font-size: 18px;
+  }
+
+  .x_series_card {
+    min-width: 110px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 320px) {
+  .x_series_title {
+    font-size: 16px;
+  }
+
+  .x_series_card {
+    min-width: 100px;
+    height: 65px;
+  }
 }
