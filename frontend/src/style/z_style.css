@@ -1,359 +1,735 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #0f0f0f;
-    color: white;
+  margin: 0;
+  padding: 0;
+  background-color: #000!important;
+  color: white;
 }
 
 .z_header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 80px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 80px;
 
-    background-color: #000;
-    /* PURE BLACK */
+  background-color: #000;
+  /* PURE BLACK */
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  color: white;
 
-    transition: width 0.3s ease;
-    overflow: hidden;
-    z-index: 100;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  z-index: 100;
 
-    /* LEFT → RIGHT SHADOW */
-    box-shadow:
-        4px 0 12px rgba(0, 0, 0, 0.9),
-        4px 0 10px rgba(0, 0, 0, 0.6);
+  /* LEFT → RIGHT SHADOW */
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.9), 4px 0 10px rgba(0, 0, 0, 0.6);
 }
 
-
-
 .z_header:hover {
-    width: 250px;
+  width: 250px;
 }
 
 .z_logo {
-    font-size: 2rem;
-    margin-bottom: 7rem;
+  font-size: 1.5rem;
+  margin-bottom: 7rem;
 }
 
 .z_menu {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
 }
 
 .z_menu-item {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-    /* color: #fff !important; */
-    padding: 15px 25px;
-    transition: color 0.3s, background-color 0.3s;
-    white-space: nowrap;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  /* color: #fff !important; */
+  padding: 15px 25px;
+  transition: color 0.3s, background-color 0.3s;
+  white-space: nowrap;
+  text-decoration: none;
 }
 
 .z_menu-item:hover {
-    /* color: white; */
-    background-color: #333;
+  /* color: white; */
+  background-color: #333;
 }
 
 .z_menu-item.z_active {
-    color: white;
-    background-color: #222;
+  color: white;
+  background-color: #222;
 }
 
 .z_menu-item-name {
-    margin-left: 20px;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    font-size: 1rem;
+  margin-left: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 1rem;
 }
 
 .z_header:hover .z_menu-item-name {
-    opacity: 1;
-    transition-delay: 0.1s;
+  opacity: 1;
+  transition-delay: 0.1s;
 }
 
 .z_logout {
-    margin-top: auto;
-    width: 100%;
-    padding-bottom: 20px;
+  margin-top: auto;
+  width: 100%;
+  padding-bottom: 20px;
 }
 
 .z_logout-item {
-    color: #ff6b6b;
+  color: #ff6b6b;
 }
 
 .z_logout-item:hover {
-    background-color: #3a1f1f;
-    color: #ff8080;
+  background-color: #3a1f1f;
+  color: #ff8080;
 }
 
 /* Content starts after sidebar */
 .app-content {
-    margin-left: 80px;
-    /* padding: 20px; */
-    transition: margin-left 0.3s ease;
-    background-color: #000;
+  margin-left: 80px;
+  /* padding: 20px; */
+  transition: margin-left 0.3s ease;
+  background-color: #000;
 }
+
 
 /* Mobile / Tablet bottom navbar */
 @media (max-width: 768px) {
-    .app-content {
-        margin-left: 80px;
-        margin-bottom: 70px;
-        /* space for bottom bar */
-    }
+  .app-content {
+    margin-left: 80px;
+    margin-bottom: 70px;
+    /* space for bottom bar */
+  }
 }
 
 /* Schedule.js start */
 
 .z_schedule {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-    color: #fff;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  color: #fff;
 }
 
 /* SEARCH */
 .z_search_box input {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 10px;
-    border: none;
-    background: #111;
-    color: #ccc;
-    outline: none;
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: none;
+  background: #111;
+  color: #ccc;
+  outline: none;
 }
 
 /* FILTERS */
 .z_filter_chips {
-    display: flex;
-    gap: 10px;
-    margin: 15px 0;
-    overflow-x: auto;
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+  overflow-x: auto;
 }
 
 .z_chip {
-    padding: 6px 14px;
-    border-radius: 20px;
-    background: #1a1a1a;
-    font-size: 0.8rem;
-    cursor: pointer;
-    white-space: nowrap;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: #1a1a1a;
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .z_chip_active {
-    background: #fff;
-    color: #000;
-    font-weight: 600;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
 }
 
 /* DAY SECTION */
 .z_day_section {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 .z_day_section h3 {
-    font-size: 0.9rem;
-    color: #aaa;
-    margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 10px;
 }
-
 /* MATCH CARD */
 .z_match_card {
-    background: linear-gradient(180deg, #141414, #0c0c0c);
-    border-radius: 14px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(180deg, #161616, #0b0b0b);
+  border-radius: 16px;
+  padding: 16px;
+  height: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.85);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.z_match_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.95);
+}
+
+/* TITLE */
 .z_match_title {
-    font-size: 0.8rem;
-    color: #bbb;
-    margin-bottom: 10px;
+  font-size: 0.82rem;
+  color: #cfcfcf;
+  margin-bottom: 12px;
+  line-height: 1.4;
 }
 
+/* TEAM LIST */
 .z_match_teams {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .z_team_row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
 }
 
+.z_team {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+/* SCORE */
 .z_score {
-    font-weight: bold;
+  font-weight: 700;
+  color: #ffffff;
 }
 
-.z_date_header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* FLAG */
+.z_flag {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* LIVE BUTTON */
 .z_live_btn {
-    margin-top: 12px;
-    width: 100%;
-    padding: 8px;
-    border-radius: 8px;
-    background: transparent;
-    border: 1px solid #FF4444;
-    color: #FF4444;
-    font-weight: bold;
-    cursor: pointer;
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 68, 68, 0.12);
+  border: 1px solid #ff4444;
+  color: #ff4444;
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  animation: pulseLive 1.6s infinite;
 }
 
-/* TIME */
+/* LIVE PULSE */
+@keyframes pulseLive {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 68, 68, 0);
+  }
+}
+
+/* TIME (RIGHT SIDE) */
 .z_time {
-    margin-top: 10px;
-    font-size: 0.85rem;
-    color: #ccc;
+  font-size: 0.78rem;
+  color: #bcbcbc;
+  line-height: 1.3;
 }
 
-.z_team {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.z_time_end {
+  text-align: right;
+  white-space: nowrap;
 }
 
-.z_flag {
-    width: 22px;
-    height: 16px;
-    object-fit: cover;
-    border-radius: 3px;
+/* MOBILE ADJUST */
+@media (max-width: 576px) {
+  .z_match_card {
+    padding: 14px;
+  }
+
+  .z_team_row {
+    font-size: 0.9rem;
+  }
+}
+/* VERTICAL DIVIDER */
+.z_match_divider {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
 }
 
 /* =========================
    CALENDAR CONTAINER
 ========================= */
 .z_calendar_wrapper {
-    background: #0b0b0b;
-    padding: 12px;
-    border-bottom: 1px solid #222;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  background: #111;
+  border-radius: 10px;
+  margin-top: 6px;
+  padding: 8px;
+  max-width: 320px; /* 👈 controls overall size */
 }
 
 /* =========================
      REACT CALENDAR RESET
   ========================= */
 .react-calendar {
-    width: 100%;
-    background: #0b0b0b;
-    border: none;
-    font-family: inherit;
+  width: 100%;
+  background: #111;
+  border: none;
+  font-family: inherit;
 }
 
 /* HEADER (MONTH + ARROWS) */
 .react-calendar__navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
 }
 
 .react-calendar__navigation button {
-    background: transparent;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 6px;
-    padding: 6px 10px;
+  background: transparent;
+  color: #fff;
+  font-size: 12px; /* 👈 reduced */
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 4px 8px; /* 👈 reduced */
 }
 
 .react-calendar__navigation button:hover {
-    background: #1c1c1c;
+  background: #1c1c1c;
 }
 
 /* WEEK DAYS */
 .react-calendar__month-view__weekdays {
-    text-align: center;
-    font-size: 11px;
-    color: #888;
-    margin-bottom: 6px;
+  text-align: center;
+  font-size: 10px; /* 👈 smaller */
+  color: #888;
+  margin-bottom: 4px;
 }
 
 .react-calendar__month-view__weekdays abbr {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* DATE CELLS */
 .react-calendar__tile {
-    background: transparent;
-    color: #fff;
-    padding: 10px 0;
-    border-radius: 8px;
-    font-size: 13px;
+  background: transparent;
+  color: #fff;
+  padding: 6px 0; /* 👈 key change */
+  border-radius: 6px;
+  font-size: 12px; /* 👈 smaller */
 }
 
 .react-calendar__tile:hover {
-    background: #1f1f1f;
+  background: #1f1f1f;
 }
 
 /* TODAY DATE */
 .react-calendar__tile--now {
-    background: #222;
-    color: #fff;
-    border-radius: 8px;
+  background: #222;
+  color: #fff;
+  border-radius: 6px;
 }
 
 /* SELECTED DATE */
 .react-calendar__tile--active {
-    background: #FF4444 !important;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 8px;
+  background: #ff4444 !important;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
 }
 
 /* DISABLED DATES */
 .react-calendar__tile--disabled {
-    color: #555;
+  color: #555;
 }
 
 /* REMOVE DOUBLE NAV BUTTONS */
 .react-calendar__navigation__prev2-button,
 .react-calendar__navigation__next2-button {
-    display: none;
+  display: none;
 }
 
 .z_sticky_top {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: #000;
-    /* black theme */
-    padding: 12px 16px;
-    border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 12;
+  background: #000;
+  /* black theme */
+  padding: 12px 16px;
+  border-bottom: 1px solid #222;
 }
 
 .z_calendar_wrapper {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 2000;
-    background: #111;
-    border-radius: 10px;
-    margin-top: 6px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  background: #111;
+  border-radius: 10px;
+  margin-top: 6px;
 }
 
+@media (max-width: 480px) {
+  .z_calendar_wrapper {
+    max-width: 280px;
+  }
+
+  .react-calendar__tile {
+    padding: 5px 0;
+    font-size: 11px;
+  }
+}
 
 /* MOBILE */
 @media (max-width: 600px) {
-    .z_schedule {
-        padding: 15px;
-    }
+  .z_schedule {
+    padding: 15px;
+  }
+}
+
+/* Logout model */
+/* OVERLAY with animated gradient */
+.z_logout_overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(2px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: overlayFade 0.3s ease-out;
+}
+
+@keyframes overlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* DIALOG BOX - Glassmorphism style */
+.z_logout_dialog {
+  background: rgba(25, 25, 35, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 40px 32px;
+  width: 420px;
+  max-width: 92vw;
+  border-radius: 24px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Accent line on top */
+.z_logout_dialog::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    #ff4444 20%, 
+    #ff6666 50%, 
+    #ff4444 80%, 
+    transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* LOGOUT ICON - Hexagon shape */
+.z_logout_icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, #ff4444 0%, #ff1a1a 100%);
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glow effect behind icon */
+.z_logout_icon::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, rgba(255, 68, 68, 0.4), transparent 70%);
+  z-index: -1;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* TYPOGRAPHY */
+.z_logout_dialog h5 {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.z_logout_dialog p {
+  color: #b0b0b0;
+  font-size: 15px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ACTION BUTTONS - Side by side with modern style */
+.z_logout_actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.z_btn_cancel,
+.z_btn_logout {
+  flex: 1;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+}
+
+/* Cancel button - outline style */
+.z_btn_cancel {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.z_btn_cancel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.z_btn_cancel:hover::before {
+  opacity: 1;
+}
+
+.z_btn_cancel:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.z_btn_cancel:active {
+  transform: translateY(0);
+}
+
+/* Logout button - solid with gradient */
+.z_btn_logout {
+  background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+  color: #fff;
+  box-shadow: 
+    0 4px 12px rgba(255, 68, 68, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine effect */
+.z_btn_logout::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent);
+  transition: left 0.5s ease;
+}
+
+.z_btn_logout:hover::after {
+  left: 100%;
+}
+
+.z_btn_logout:hover {
+  background: linear-gradient(135deg, #ff5555 0%, #dd0000 100%);
+  box-shadow: 
+    0 8px 24px rgba(255, 68, 68, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.z_btn_logout:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 8px rgba(255, 68, 68, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+  .z_logout_dialog {
+    padding: 36px 24px;
+    width: 360px;
+    border-radius: 20px;
+  }
+
+  .z_logout_icon {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+
+  .z_logout_dialog h5 {
+    font-size: 22px;
+  }
+
+  .z_logout_dialog p {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  .z_logout_actions {
+    gap: 10px;
+  }
+
+  .z_btn_cancel,
+  .z_btn_logout {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+.z_no_match {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 400px;
+}
+
+.z_no_match_svg {
+  margin-bottom: 24px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.z_no_match_text h4 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.z_no_match_text p {
+  color: #888;
+  font-size: 15px;
+  margin: 0;
 }
