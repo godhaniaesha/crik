@@ -14,6 +14,7 @@ import VerifyOtp from "./component/VerifyOtp";
 import LiveUpc from "./component/LiveUpc";
 import HighlightsSlider from "./component/HighlightsSlider";
 import Main from "./container/Main";
+import MatchDetails from "./component/MatchDetails";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/HighlightsSlider" element={<HighlightsSlider />} />
           <Route path="/slide" element={<Heroslide />} />
           <Route path="/browse" element={<BrowseSeries />} />
+          <Route path="/matchdetail" element={<MatchDetails />} />
         </Routes>
       </div>
     </Router>

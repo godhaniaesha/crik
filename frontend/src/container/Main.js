@@ -3,6 +3,8 @@ import Heroslider from '../component/Heroslide'
 import BrowseSeries from '../component/BrowseSeries'
 import LiveUpc from '../component/LiveUpc'
 import HighlightsSlider from '../component/HighlightsSlider'
+import BestAshes from '../component/BestAshes'
+import WomenLeagues from '../component/WomenLeagues'
 
 export default function Main() {
   return (
@@ -11,6 +13,8 @@ export default function Main() {
       <BrowseSeries></BrowseSeries>
       <LiveUpc></LiveUpc>
       <HighlightsSlider></HighlightsSlider>
+      <BestAshes></BestAshes>
+      <WomenLeagues></WomenLeagues>
     </>
   )
 }

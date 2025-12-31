@@ -213,3 +213,171 @@ body {
         min-height: 400px;
     }
 }
+
+
+:root {
+  --d-bg: #0b0b0b;
+  --d-card: #161616;
+  --d-accent: #8e2de2;
+  --d-gradient: linear-gradient(90deg, #8e2de2 0%, #4a00e0 100%);
+  --d-gold: #ffcc00;
+}
+
+.d_match_details_page {
+  background-color: var(--d-bg);
+  min-height: 100vh;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.d_navbar {
+  background-color: #111;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.d_header_title {
+  font-size: 1.1rem;
+}
+
+/* Hero Section */
+.d_hero_section {
+  background: linear-gradient(180deg, #1a1a1a 0%, #0b0b0b 100%);
+  border: 1px solid #222;
+  border-radius: 20px;
+}
+
+.d_flag_circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #333;
+}
+
+.d_eng_flag { background: radial-gradient(circle, #fff 40%, #ce1126 41%); }
+.d_rsa_flag { background: linear-gradient(45deg, #007a4d, #ffb612, #002395); }
+
+.d_vs_circle {
+  background: #222;
+  padding: 10px;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: var(--d-gold);
+}
+
+.d_timer_text {
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+
+.d_buy_pass_btn {
+  background: var(--d-gradient);
+  border: none;
+  color: white;
+  padding: 12px 40px;
+  font-weight: 700;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+/* Tabs */
+.d_tabs_scroll_wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.d_tabs_container::-webkit-scrollbar { display: none; }
+
+/* Custom horizontal scrollbar for the tabs wrapper (WebKit + Blink) */
+.d_tabs_scroll_wrapper::-webkit-scrollbar {
+  height: 10px;
+}
+.d_tabs_scroll_wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.d_tabs_scroll_wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, rgba(142,45,226,0.25), rgba(74,0,224,0.25));
+  border-radius: 99px;
+  border: 2px solid rgba(0,0,0,0);
+}
+.d_tabs_scroll_wrapper::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, rgba(142,45,226,0.45), rgba(74,0,224,0.45));
+}
+
+/* Firefox: use scrollbar-width and scrollbar-color */
+.d_tabs_scroll_wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(142,45,226,0.25) transparent;
+}
+
+/* Fallback: make the container visually show a small indicator when overflowing */
+.d_tabs_scroll_wrapper[data-show-fade='true'] {
+  position: relative;
+}
+.d_tabs_scroll_wrapper[data-show-fade='true']::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 48px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(11,11,11,0.6));
+}
+
+.d_tab_item {
+  padding: 15px 23px;
+  color: #888;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.d_tab_item:hover, .d_tab_item.active {
+  color: var(--d-gold);
+  border-bottom: 3px solid var(--d-gold);
+}
+
+/* Side Cards */
+.d_side_card {
+  background: var(--d-card);
+  border-radius: 15px;
+  border: 1px solid #222;
+}
+
+.d_notify_btn {
+  background: rgba(142, 45, 226, 0.1);
+  color: #b388ff;
+  border: 1px solid #8e2de2;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.d_section_label {
+  color: var(--d-gold);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+}
+
+.d_badge_label {
+  display: inline-block;
+  background: #222;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  border: 1px solid #333;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 768px) {
+  .d_header_title { font-size: 0.9rem; }
+  .d_timer_text { font-size: 2.5rem; }
+  .d_flag_circle { width: 60px; height: 60px; }
+  .d_tab_item { padding: 10px 15px; font-size: 0.8rem; }
+  .d_buy_pass_btn { width: 100%; }
+}

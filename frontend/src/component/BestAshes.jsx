@@ -1,53 +1,53 @@
 import React, { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../style/d_slider.css";
-import v1 from "../img/v1.png";
-import v2 from "../img/v2.png";
-import v3 from "../img/v3.png";
+import v1 from "../img/v7.png";
+import v2 from "../img/v8.png";
+import v3 from "../img/v1.png";
 
 const d_highlights = [
   {
     id: 1,
-    title: "2nd Test: IND vs SA, Full Match Highlights",
+    title: "2nd Test Highlights | IND vs SA",
     duration: "3m",
     thumbnail: v1,
   },
   {
     id: 2,
-    title: "2nd Test: India vs South Africa, Day 1 Highlights",
+    title: "2nd Test Day 1 Highlights | IND vs SA",
     duration: "14m",
-    thumbnail: "https://i.ytimg.com/vi/bGWJ2B8a1Ys/maxresdefault.jpg",
+    thumbnail: "https://cdn.mos.cms.futurecdn.net/5pHJZPCneVms8CreW9dWpW.jpg",
   },
   {
     id: 3,
-    title: "1st Test: IND vs SA, Day 2 Highlights",
+    title: "1st Test Day 2 Highlights | IND vs SA",
     duration: "11m",
     thumbnail: v3,
   },
   {
     id: 4,
-    title: "1st Test: India vs South Africa, Day 3 Highlights",
+    title: "1st Test Day 3 Highlights | IND vs SA",
     duration: "9m",
-
     thumbnail: v2,
   },
   {
     id: 5,
-    title: "IND vs SA: Best Moments Compilation",
+    title: "Best Moments | IND vs SA Test Series",
     duration: "7m",
     thumbnail:
-      "https://i.ytimg.com/vi/kXBsM0LaEf8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDIox9x2fmUfBkz4sco5pAxzsqqkQ",
+      "https://library.sportingnews.com/styles/crop_style_16_9_desktop_webp/s3/2023-06/Ben%20Stokes%20Pat%20Cummins%20Ashes%20062123.jpg.webp?itok=zQlbtqUY",
   },
   {
     id: 6,
-    title: "IND vs SA: Match Winning Spells",
+    title: "Match Winning Spells | IND vs SA",
     duration: "6m",
     thumbnail:
-      "https://i.ytimg.com/vi/DWgRT0N8v_E/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCdry34QkkkOJf5KX9CebVbPCt28A",
+      "https://images.immediate.co.uk/production/volatile/sites/3/2025/11/AShes-60ca16f.jpg?quality=90&resize=980,654",
   },
 ];
 
-function HighlightsSlider() {
+
+function BestAshes() {
   const d_sliderRef = useRef(null);
 
   const d_scrollLeft = () => {
@@ -68,7 +68,7 @@ function HighlightsSlider() {
     <div className="d_highlight_wrapper">
       {/* HEADER */}
       <div className="d_highlight_header">
-        <h2 className="d_highlight_heading">IND vs SA: Highlight</h2>
+        <h2 className="d_highlight_heading">Best of The Ashes 2025/26</h2>
 
         <div className="d_highlight_arrows">
           <button onClick={d_scrollLeft}>
@@ -101,4 +101,4 @@ function HighlightsSlider() {
   );
 }
 
-export default HighlightsSlider;
+export default BestAshes;
