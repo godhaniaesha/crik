@@ -14,7 +14,7 @@ const matches = [
     team1: {
       code: "IND",
       name: "India",
-      flag: "https://flagcdn.com/w40/in.png",
+      flagCode: "in",
       score: 225,
       wickets: 5,
       overs: "20.0",
@@ -22,7 +22,7 @@ const matches = [
     team2: {
       code: "AUS",
       name: "Australia",
-      flag: "https://flagcdn.com/w40/au.png",
+      flagCode: "au",
       score: 159,
       wickets: 9,
       overs: "18.4",
@@ -40,7 +40,7 @@ const matches = [
     team1: {
       code: "NZ",
       name: "New Zealand",
-      flag: "https://flagcdn.com/w40/nz.png",
+      flagCode: "nz",
       score: 210,
       wickets: 4,
       overs: "62.1",
@@ -48,7 +48,7 @@ const matches = [
     team2: {
       code: "ENG",
       name: "England",
-      flag: "https://flagcdn.com/w40/gb-eng.png",
+      flagCode: "gb-eng",
     },
     note: "Day 1 – Drinks Break",
   },
@@ -63,12 +63,12 @@ const matches = [
     team1: {
       code: "CSK",
       name: "Chennai Super Kings",
-      flag: "https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg",
+      flagCode: "cs",
     },
     team2: {
       code: "MI",
       name: "Mumbai Indians",
-      flag: "https://upload.wikimedia.org/wikipedia/en/c/cd/Mumbai_Indians_Logo.svg",
+      flagCode: "mi",
     },
     note: "Match starts at 7:30 PM IST",
   },
@@ -83,14 +83,14 @@ const matches = [
     team1: {
       code: "PAK",
       name: "Pakistan",
-      flag: "https://flagcdn.com/w40/pk.png",
+      flagCode: "pk",
       score: 287,
       wickets: 10,
     },
     team2: {
       code: "SL",
       name: "Sri Lanka",
-      flag: "https://flagcdn.com/w40/lk.png",
+      flagCode: "lk",
       score: 289,
       wickets: 7,
     },
@@ -107,7 +107,7 @@ const matches = [
     team1: {
       code: "IND",
       name: "India",
-      flag: "https://flagcdn.com/w40/in.png",
+      flagCode: "in",
       score: 198,
       wickets: 6,
       overs: "19.2",
@@ -115,7 +115,7 @@ const matches = [
     team2: {
       code: "ENG",
       name: "England",
-      flag: "https://flagcdn.com/w40/gb-eng.png",
+      flagCode: "gb-eng",
       score: 165,
       wickets: 7,
       overs: "17.4",
@@ -133,16 +133,25 @@ const matches = [
     team1: {
       code: "RCB",
       name: "Royal Challengers Bengaluru",
-      flag: "https://www.royalchallengers.com/themes/custom/rcbbase/images/rcb-logo-new.png",
+      flagCode: "rcb",
     },
     team2: {
       code: "KKR",
       name: "Kolkata Knight Riders",
-      flag: "https://upload.wikimedia.org/wikipedia/en/4/4c/Kolkata_Knight_Riders_Logo.svg",
+      flagCode: "kkr",
     },
     note: "IPL 2025 – Match Day",
   },
 ];
+
+const Flag = ({ code }) => (
+  <img
+    src={`https://flagcdn.com/w40/${code}.png`}
+    alt={code}
+    className="z_flag"
+    loading="lazy"
+  />
+);
 
 function LiveUpc() {
   const sliderRef = useRef(null);
@@ -193,14 +202,19 @@ function LiveUpc() {
             <div className="d_match_body">
               <div className="d_team">
                 <div>
-                  <img
-                    src={item.team1.flag}
-                    alt={item.team1.code}
-                    className="d_flag"
-                  />
+                  {item.team1.flagCode ? (
+                    <Flag code={item.team1.flagCode} />
+                  ) : (
+                    <img
+                      src={item.team1.flag}
+                      className="d_flag"
+                      alt={item.team1.code}
+                    />
+                  )}
 
                   <span className="d_team_code">{item.team1.code}</span>
                 </div>
+
                 {item.team1.score !== undefined && (
                   <span className="d_score">
                     {item.team1.score}/{item.team1.wickets}
@@ -211,13 +225,19 @@ function LiveUpc() {
 
               <div className="d_team">
                 <div>
-                   <img
-                    src={item.team1.flag}
-                    alt={item.team1.code}
-                    className="d_flag"
-                  />
+                  {item.team2.flagCode ? (
+                    <Flag code={item.team2.flagCode} />
+                  ) : (
+                    <img
+                      src={item.team2.flag}
+                      className="d_flag"
+                      alt={item.team2.code}
+                    />
+                  )}
+
                   <span className="d_team_code">{item.team2.code}</span>
                 </div>
+
                 {item.team2.score !== undefined && (
                   <span className="d_score">
                     {item.team2.score}/{item.team2.wickets}
