@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCalendarAlt, FaChevronDown } from "react-icons/fa";
 import Calendar from "react-calendar";
+import { FaAnglesUp } from "react-icons/fa6";
+
 
 const Flag = ({ code }) => (
     <img
@@ -193,6 +195,21 @@ export default function Schedule() {
     const [searchTerm, setSearchTerm] = useState("");
     const filterOptions = ["All", "Domestic", "Intl", "T20s"];
     const [activeFilter, setActiveFilter] = useState("All");
+    const [showScrollTop, setShowScrollTop] = useState(false);
+
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowScrollTop(true);
+            } else {
+                setShowScrollTop(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     // Fix timezone issue - get local date string
     const getLocalDateString = (dateObj) => {
@@ -242,6 +259,13 @@ export default function Schedule() {
         month: "long",
         year: "numeric"
     });
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
 
     return (
         <div className="z_schedule">
@@ -429,6 +453,17 @@ export default function Schedule() {
                     </div>
                 </div>
             )}
+
+            {showScrollTop && (
+                <button
+                    className="z_scroll_top"
+                    onClick={scrollToTop}
+                    aria-label="Scroll to top"
+                >
+                    <FaAnglesUp />
+                </button>
+            )}
+
         </div>
     );
 }
