@@ -1046,6 +1046,815 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  position: sticky;
+}
+
+/* MySpace left nav + right tabs layout */
+.z_sett_layout_row {
+  margin-top: 16px;
+}
+
+.z_sett_nav {
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.z_sett_nav_item {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: #fff;
+  padding: 14px 16px;
+  font-size: 0.9rem;
+}
+
+.z_sett_nav_item:last-child {
+  border-bottom: none;
+}
+
+.z_sett_nav_item_active {
+  background: #1f1f1f;
+}
+
+.z_sett_tab_card {
+  background: #111;
+  border-radius: 12px;
+  padding: 18px 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.z_sett_tab_title {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.z_sett_tab_text {
+  font-size: 0.9rem;
+  color: #bbbbbb;
+}
+
+.z_sett_plan_box {
+  background: #181818;
+  border-radius: 10px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.z_sett_plan_name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.z_sett_plan_price {
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.z_sett_plan_desc {
+  font-size: 0.8rem;
+  color: #aaaaaa;
+  margin-top: 4px;
+}
+
+/* Subscription tab specific (inside MySpace) */
+.z_sett_subs_plans {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.z_sett_subs_plan_card {
+  background: #101010;
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 1px solid #222;
+  transition: all 0.25s ease;
+}
+
+.z_sett_subs_plan_card:hover {
+  border-color: #444;
+}
+
+.z_sett_subs_plan_active {
+  border-color: #ffd54a;
+  box-shadow: 0 0 0 1px rgba(255, 213, 74, 0.35);
+}
+
+.z_sett_subs_plan_left {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.z_sett_subs_plan_right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.z_sett_subs_radio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.z_sett_subs_radio_active {
+  border-color: #ffd54a;
+}
+
+.z_sett_subs_radio_dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffd54a;
+}
+
+.z_sett_coupon_title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.z_sett_coupon_sub {
+  font-size: 0.8rem;
+  color: #bbbbbb;
+  margin-top: 4px;
+}
+
+.z_sett_coupon_btn {
+  background: #ffd54a;
+  border-radius: 999px;
+  border: none;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.z_sett_price_box {
+  background: #101010;
+  border-radius: 10px;
+  padding: 12px 14px;
+  border: 1px solid #222;
+}
+
+.z_sett_price_row_header {
+  font-size: 0.85rem;
+  color: #bbbbbb;
+  margin-bottom: 6px;
+}
+
+.z_sett_price_row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.z_sett_price_discount {
+  color: #ff7070;
+}
+
+.z_sett_price_total {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #222;
+  font-weight: 700;
+}
+
+/* Blue Banner */
+.z_sett_new_user_banner {
+  background: #0051ff;
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.z_sett_new_user_banner:hover {
+  opacity: 0.9;
+}
+
+.z_sett_new_user_banner svg {
+  font-size: 0.85rem;
+}
+
+/* Coupons & Offers Section */
+.z_sett_coupon_section {
+  margin-top: 16px;
+  border: 1px solid #333;
+  padding: 12px;
+}
+
+.z_sett_coupon_header {
+  margin-bottom: 8px;
+  padding: 4px 0;
+  transition: opacity 0.3s ease;
+}
+
+.z_sett_coupon_header:hover {
+  opacity: 0.8;
+}
+
+.z_sett_coupon_section_title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.z_sett_coupon_chevron {
+  font-size: 0.85rem;
+  color: #888;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.z_sett_coupon_header:hover .z_sett_coupon_chevron {
+  transform: translateX(3px);
+  color: #fff;
+}
+
+.z_sett_coupon_card {
+  background: #101010;
+  border-radius: 10px;
+  padding: 12px 14px;
+  gap: 12px;
+}
+
+.z_sett_coupon_icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.z_sett_coupon_content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.z_sett_coupon_title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.z_sett_coupon_sub {
+  font-size: 0.8rem;
+  color: #bbbbbb;
+}
+
+.z_sett_coupon_btn {
+  background: #ffd54a;
+  border-radius: 999px;
+  border: none;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.z_sett_coupon_btn:hover {
+  opacity: 0.9;
+}
+
+/* Coupon Modal */
+.z_sett_coupon_modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  animation: fadeIn 0.3s ease;
+}
+
+.z_sett_coupon_modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1a1a1a;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  z-index: 1051;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.z_sett_coupon_modal_header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.z_sett_coupon_modal_title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.z_sett_coupon_modal_close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.z_sett_coupon_modal_close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.z_sett_coupon_modal_body {
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.z_sett_coupon_modal_item {
+  background: #101010;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.z_sett_coupon_modal_item:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: #151515;
+}
+
+.z_sett_coupon_modal_item_selected {
+  border-color: #ffd54a !important;
+  background: rgba(255, 213, 74, 0.1) !important;
+  box-shadow: 0 0 0 1px rgba(255, 213, 74, 0.3);
+}
+
+.z_sett_coupon_modal_icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.z_sett_coupon_modal_content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.z_sett_coupon_modal_item_title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.z_sett_coupon_modal_item_desc {
+  font-size: 0.8rem;
+  color: #bbbbbb;
+}
+
+.z_sett_coupon_modal_code {
+  font-size: 0.75rem;
+  color: #ffd54a;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.z_sett_coupon_modal_discount {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffd54a;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .z_sett_coupon_modal {
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .z_sett_coupon_modal_header {
+    padding: 16px;
+  }
+
+  .z_sett_coupon_modal_title {
+    font-size: 1.1rem;
+  }
+
+  .z_sett_coupon_modal_body {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .z_sett_coupon_modal_item {
+    padding: 12px 14px;
+  }
+
+  .z_sett_coupon_modal_icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .z_sett_coupon_modal_item_title {
+    font-size: 0.9rem;
+  }
+
+  .z_sett_coupon_modal_item_desc {
+    font-size: 0.75rem;
+  }
+
+  .z_sett_coupon_modal_discount {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .z_sett_coupon_modal {
+    width: 98%;
+    max-height: 90vh;
+  }
+
+  .z_sett_coupon_modal_header {
+    padding: 14px;
+  }
+
+  .z_sett_coupon_modal_title {
+    font-size: 1rem;
+  }
+
+  .z_sett_coupon_modal_body {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .z_sett_coupon_modal_item {
+    padding: 10px 12px;
+    flex-wrap: wrap;
+  }
+
+  .z_sett_coupon_modal_icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Sticky Footer */
+.z_sett_subs_footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  border-top: 1px solid #222;
+  z-index: 10;
+  margin-top: 20px;
+}
+
+.z_sett_subs_footer_banner {
+  background: #0051ff;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.z_sett_subs_footer_banner svg {
+  font-size: 0.8rem;
+}
+
+.z_sett_subs_footer_content {
+  padding: 16px 20px;
+  background: #000;
+}
+
+.z_sett_subs_payable {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.z_sett_subs_payable_label {
+  font-size: 0.8rem;
+  color: #aaaaaa;
+}
+
+.z_sett_subs_payable_value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.z_sett_subs_continue_btn {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 999px;
+  padding: 12px 32px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.z_sett_subs_continue_btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .z_sett_subs_plan_card {
+    padding: 10px 12px;
+  }
+
+  .z_sett_coupon_card,
+  .z_sett_price_box {
+    padding: 10px 12px;
+  }
+
+  .z_sett_new_user_banner {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .z_sett_subs_footer_content {
+    padding: 14px 16px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .z_sett_subs_payable {
+    width: 100%;
+  }
+
+  .z_sett_subs_continue_btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .z_sett_subs_payable_value {
+    font-size: 1.3rem;
+  }
+}
+
+.z_sett_option_group {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Notifications List */
+.z_sett_notification_list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.z_sett_notification_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.z_sett_notification_item:last-child {
+  border-bottom: none;
+}
+
+.z_sett_notification_content {
+  flex: 1;
+  padding-right: 16px;
+}
+
+.z_sett_notification_title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.z_sett_notification_desc {
+  font-size: 0.85rem;
+  color: #aaaaaa;
+  line-height: 1.4;
+}
+
+/* Custom Toggle Switch Styling */
+.z_sett_notification_item .form-check {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  min-width: 48px;
+}
+
+.z_sett_notification_item .form-check-input {
+  width: 48px;
+  height: 28px;
+  margin: 0;
+  cursor: pointer;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  flex-shrink: 0;
+}
+
+.z_sett_notification_item .form-check-input:checked {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.z_sett_notification_item .form-check-input:focus {
+  box-shadow: none;
+  border-color: #555;
+  outline: none;
+}
+
+.z_sett_notification_item .form-check-input:checked:focus {
+  border-color: #fff;
+  outline: none;
+}
+
+.z_sett_notification_item .form-check-input[type="checkbox"] {
+  background-image: none;
+}
+
+.z_sett_notification_item .form-check-input::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #666;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.z_sett_notification_item .form-check-input:checked::after {
+  background-color: #000;
+  left: 22px;
+}
+.form-switch .form-check-input{
+  width: 3rem !important;
+}
+
+@media (max-width: 768px) {
+  .z_sett_notification_item {
+    padding: 14px 0;
+  }
+
+  .z_sett_notification_title {
+    font-size: 0.95rem;
+  }
+
+  .z_sett_notification_desc {
+    font-size: 0.8rem;
+  }
+
+  .z_sett_notification_item .form-check-input {
+    width: 44px;
+    height: 26px;
+  }
+
+  .z_sett_notification_item .form-check-input::before {
+    width: 20px;
+    height: 20px;
+  }
+
+  .z_sett_notification_item .form-check-input:checked::before {
+    left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .z_sett_notification_item {
+    padding: 12px 0;
+  }
+
+  .z_sett_notification_title {
+    font-size: 0.9rem;
+  }
+
+  .z_sett_notification_desc {
+    font-size: 0.75rem;
+  }
+
+  .z_sett_notification_item .form-check-input {
+    width: 40px;
+    height: 24px;
+  }
+
+  .z_sett_notification_item .form-check-input::before {
+    width: 18px;
+    height: 18px;
+    top: 2px;
+    left: 2px;
+  }
+
+  .z_sett_notification_item .form-check-input:checked::before {
+    left: 18px;
+  }
+}
+
+.z_sett_help_list {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: #cccccc;
+}
+
+.z_sett_primary_btn {
+  background: #ffffff;
+  border-radius: 999px;
+  border: none;
+  color: #000;
+  padding: 8px 22px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .z_sett_layout_row {
+    margin-top: 12px;
+  }
+
+  .z_sett_tab_card {
+    margin-top: 8px;
+    margin-bottom: 140px;
+  }
 }
 
 .z_sett_item {
@@ -1058,6 +1867,11 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.z_sett_item_active {
+  background: #222;
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .z_sett_item:hover {
