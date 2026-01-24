@@ -613,18 +613,21 @@ body {
     color: #777;
     font-size: 14px;
 }
+
 .z_highlight {
     color: #FFF;
     padding: 0 4px;
     border-radius: 4px;
     font-weight: 600;
 }
-.z_sticky_top  .d_tab_item{
+
+.z_sticky_top .d_tab_item {
     color: #666666 !important;
     padding: 10px 20px;
 }
 
-.z_sticky_top  .d_tab_item:hover, .d_tab_item.active {
+.z_sticky_top .d_tab_item:hover,
+.d_tab_item.active {
     color: #fff !important;
     border-bottom: 2px solid #FFEA00 !important;
 }
@@ -673,5 +676,326 @@ body {
 
     .z_video_title {
         font-size: 12px;
+    }
+}
+
+/* =========================================================== SeariesDetail.js */
+
+/* ===================================================================
+   Point Table Styles
+   =================================================================== */
+
+.pt_table_wrapper {
+    background-color: #111111;
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.pt_table_scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pt_table_scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.pt_table_scroll::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+.pt_table_scroll::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 3px;
+}
+
+.pt_table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background-color: #1a1a1a;
+}
+
+.pt_table thead {
+    background-color: #121212;
+    border-bottom: none;
+}
+
+.pt_table thead tr th {
+    padding: 14px 10px;
+    font-weight: 500;
+    color: #A1A1A1;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+.pt_table tbody tr {
+    border-bottom: 1px solid #000;
+    background-color: #000;
+    transition: all 0.3s ease;
+}
+
+.pt_table tbody tr:hover {
+    background-color: #070808e0;
+}
+
+.pt_table tbody tr td {
+    padding: 12px 10px;
+    color: #ffffff;
+}
+
+.pt_pos {
+    font-weight: 700;
+    color: #FF4444;
+    min-width: 40px;
+}
+
+.pt_team {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    text-align: left;
+    min-width: 100px;
+}
+
+.pt_flag {
+    width: 28px;
+    height: 20px;
+    border-radius: 3px;
+    object-fit: cover;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.pt_wins {
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+.pt_losses {
+    color: #FF5252;
+    font-weight: 600;
+}
+
+.pt_nrr {
+    color: #FFD700;
+    font-weight: 600;
+}
+
+.pt_pts {
+    color: #FF4444;
+    font-size: 15px;
+    min-width: 45px;
+}
+
+.pt_matches {
+    min-width: 100px;
+}
+
+.pt_match_results {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.pt_match_result {
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 11px;
+    transition: all 0.3s ease;
+}
+
+.pt_match_result.w {
+    background-color: #00D45B33;
+    color: #00D45B;
+    border: 1px solid #00D45B;
+}
+
+.pt_match_result.l {
+    background-color: #FF223E33;
+    color: #FF223E;
+    border: 1px solid #FF223E;
+}
+
+.pt_match_result:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .pt_table_wrapper {
+        margin: 10px;
+    }
+
+    .pt_table {
+        font-size: 12px;
+    }
+
+    .pt_table thead tr th {
+        padding: 10px 6px;
+        font-size: 10px;
+    }
+
+    .pt_table tbody tr td {
+        padding: 10px 6px;
+    }
+
+    .pt_flag {
+        width: 24px;
+        height: 18px;
+    }
+
+    .pt_match_result {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+}
+
+
+/* banner */
+
+/* ===================================================================
+   Banner Section Styles
+   =================================================================== */
+
+.banner_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--x-black);
+}
+
+.banner_card {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.banner_bg {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.banner_overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 2.88%, rgba(0, 0, 0, 0.2) 40.87%, rgba(0, 0, 0, 0.5) 58.65%, rgba(0, 0, 0, 0.9) 80.29%, #000000 100%);
+    z-index: 1;
+}
+
+.banner_content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.banner_title {
+    font-size: 30px;
+    font-weight: 700;
+    font-style: italic;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+.banner_info {
+    gap: 4px;
+    font-size: 14px;
+    color: #e0e0e0;
+}
+
+.banner_type,
+.banner_date,
+.banner_match {
+    font-size: 16px;
+}
+
+.banner_btn {
+    align-self: flex-start;
+    background: linear-gradient(90deg, #1400C4 9.13%, #AE00FF 100%);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.banner_btn:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 16px #7b3aed4f;
+}
+
+@media (max-width: 1024px) {
+    .banner_container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .banner_bg {
+        height: 380px;
+        padding: 15px;
+    }
+
+    .banner_title {
+        font-size: 20px;
+    }
+
+    .banner_year {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner_container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .banner_bg {
+        height: 400px;
+        padding: 15px;
+    }
+
+    .banner_title {
+        font-size: 18px;
+    }
+
+    .banner_year {
+        font-size: 14px;
+    }
+
+    .banner_info {
+        font-size: 12px;
+    }
+
+    .banner_btn {
+        padding: 8px 20px;
+        font-size: 13px;
     }
 }

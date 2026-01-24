@@ -15,10 +15,12 @@ import series12 from "../img/SERIES(12).png";
 import series14 from "../img/SERIES(14).png";
 import series15 from "../img/SERIES(15).png";
 import series16 from "../img/SERIES(16).png";
+import { useNavigate } from 'react-router';
 
 
 
 export default function Series() {
+    const navigate = useNavigate();
     const images = [
         series9, series, series4, series2, series16, series5, series6, series1, series7, series10, series14, series15, series8,
         series11, series3, series12,
@@ -30,7 +32,9 @@ export default function Series() {
 
                 <div className="x_series_grid">
                     {images.map((img, index) => (
-                        <div className="x_series_card" key={index}>
+                        <div className="x_series_card" key={index} onClick={() => {
+                            navigate('/seariesdetail');
+                        }}>
                             <img src={img} alt={`popular-series-${index}`} />
                         </div>
                     ))}

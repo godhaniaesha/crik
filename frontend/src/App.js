@@ -21,6 +21,7 @@ import Search from "./component/Search";
 import Series from "./component/Series";
 import MySpace from "./pages/MySpace";
 import AccountSettings from "./pages/AccountSettings";
+import SeariesDetail from "./component/SeariesDetail";
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
           <Route path="/matchdetail" element={<MatchDetails />} />
           <Route path="/search" element={<Search />} />
           <Route path="/series" element={<Series />} />
-
+          <Route path="/seariesdetail" element={<SeariesDetail />} />
           <Route path="/profile" element={<MySpace />} />
           <Route path="/account-settings" element={<AccountSettings />} />
         </Routes>

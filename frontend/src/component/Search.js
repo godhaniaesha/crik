@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../style/x_style.css';
 import { IoCloseCircleOutline, IoSearch } from "react-icons/io5";
-
-
 import series from "../img/SERIES.png";
 import series1 from "../img/SERIES(1).png";
 import series2 from "../img/SERIES(2).png";
@@ -360,7 +358,7 @@ export default function Search() {
                                 <h2 className="x_series_title">Videos</h2>
                                 <div className="row">
                                     {filteredResults.videos.map((video, index) => (
-                                        <div className="col-12 col-md-4 mb-3" key={index}>
+                                        <div className="col-12 col-md-6 col-xl-4 mb-3" key={index}>
                                             <div className="d_highlight_card">
                                                 <div className="d_thumb_wrapper">
                                                     <img
