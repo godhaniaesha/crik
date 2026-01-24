@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Loading from './component/loading';
 // import Getstart from './component/Getstart';
 // import Heroslide from './component/Heroslide';
+import "./style/x_style.css";
+import "./style/z_style.css";
 import Header from "./component/Header";
 import Schedule from "./pages/Schedule";
 import Loading from "./component/loading";
@@ -15,6 +17,8 @@ import LiveUpc from "./component/LiveUpc";
 import HighlightsSlider from "./component/HighlightsSlider";
 import Main from "./container/Main";
 import MatchDetails from "./component/MatchDetails";
+import Search from "./component/Search";
+import Series from "./component/Series";
 
 function App() {
   return (
@@ -34,6 +38,9 @@ function App() {
           <Route path="/slide" element={<Heroslide />} />
           <Route path="/browse" element={<BrowseSeries />} />
           <Route path="/matchdetail" element={<MatchDetails />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/series" element={<Series />} />
+
         </Routes>
       </div>
     </Router>

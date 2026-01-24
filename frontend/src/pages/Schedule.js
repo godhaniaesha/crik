@@ -336,7 +336,7 @@ export default function Schedule() {
                                                 match.time && (
                                                     <div className="z_time z_time_end text-end">
                                                         Watch live at <br />
-                                                        <b>{match.time}</b>
+                                                        <b className='x_time'>{match.time}</b>
                                                     </div>
                                                 )
                                             )}

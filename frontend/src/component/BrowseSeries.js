@@ -70,7 +70,7 @@ export default function BrowseSeries() {
     }, [isPaused]);
 
     return (
-        <section className="x_series_section">
+        <section className=" d_slider_wrapper x_series_section">
             <h2 className="x_series_title">Browse Series</h2>
 
             <div
