@@ -773,3 +773,396 @@ body {
 @media (max-width: 768px) {
     .d_scorecard_root .d_ball_circle { width: 30px; height: 30px; font-size: 0.8rem; }
 }
+/* મેઈન રેપર ક્લાસ */
+.d_overs_wrapper {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Accordion Styling */
+.d_overs_wrapper .d_team_header {
+  background-color: #0c0c0c;
+  border-left: 3px solid #ffcc00; /* Team highlighting border */
+  border-bottom: 1px solid #222;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 4px 4px 0 0;
+}
+
+.d_overs_wrapper .d_team_header:hover {
+  background-color: #1a1a1a;
+}
+
+.d_overs_wrapper .d_over_list {
+  background-color: #050505;
+  border: 1px solid #1a1a1a;
+  border-top: 0;
+  max-height: 80vh; /* સ્ક્રીન મોટી હોય તો સ્ક્રોલબાર માટે */
+  overflow-y: auto;
+}
+
+.d_overs_wrapper .d_over_item {
+  padding: 11px;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+/* Over Header Info */
+.d_overs_wrapper .d_over_info {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.d_overs_wrapper .d_over_num {
+  color: #fff;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Ball Circles Styling */
+.d_overs_wrapper .d_ball_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.d_overs_wrapper .d_ball {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+  border: 1.5px solid;
+}
+
+/* Ball Types - Image matching colors */
+.d_overs_wrapper .d_ball_run { background: #1a233a; border-color: #3b82f6; color: #fff; } 
+.d_overs_wrapper .d_ball_dot { background: #1a1a1a; border-color: #444; color: #888; } 
+.d_overs_wrapper .d_ball_boundary { background: #3a3200; border-color: #ffcc00; color: #ffcc00; } 
+.d_overs_wrapper .d_ball_wicket { background: #3a1a1a; border-color: #dc3545; color: #fff; } 
+.d_overs_wrapper .d_ball_extra { background: #2a1a3a; border-color: #a855f7; color: #fff; } 
+.d_overs_wrapper .d_ball_nb { background: #1a3a1a; border-color: #22c55e; color: #fff;font-size: smaller !important; } 
+
+/* Bowler & Commentary */
+.d_overs_wrapper .d_bowler_label {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.d_overs_wrapper .d_commentary {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin-top: 5px;
+  line-height: 1.5;
+}
+/* --- Custom Scrollbar for Over List --- */
+
+/* Firefox માટે */
+.d_overs_wrapper .d_over_list {
+  scrollbar-width: thin;          /* સ્ક્રૉલબારની પહોળાઈ પાતળી રાખવા */
+  scrollbar-color: #333 #0a0a0a;  /* thumb અને track નો કલર (Thumb | Track) */
+}
+
+/* Chrome, Edge, અને Safari માટે (Webkit) */
+.d_overs_wrapper .d_over_list::-webkit-scrollbar {
+  width: 6px; /* સ્ક્રૉલબારની પહોળાઈ */
+}
+
+/* સ્ક્રૉલબારનો પાછળનો ભાગ (Track) */
+.d_overs_wrapper .d_over_list::-webkit-scrollbar-track {
+  background: #0a0a0a; 
+  border-radius: 10px;
+}
+
+/* સ્ક્રૉલબારનો હલતો ભાગ (Thumb) */
+.d_overs_wrapper .d_over_list::-webkit-scrollbar-thumb {
+  background: #333; /* ઘાટો ગ્રે કલર જે ડાર્ક થીમ સાથે મેચ થશે */
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+/* જ્યારે યુઝર સ્ક્રૉલબાર પર માઉસ લઈ જાય (Hover) */
+.d_overs_wrapper .d_over_list::-webkit-scrollbar-thumb:hover {
+  background: #444; /* થોડો લાઈટ કલર જેથી યુઝરને ખબર પડે */
+}
+
+/* જો તમારે એક્સેન્ટ કલર આપવો હોય (દા.ત. Yellow) તો આ વાપરી શકાય */
+/* .d_overs_wrapper .d_over_list::-webkit-scrollbar-thumb {
+  background: #ffcc00; 
+} */
+
+/* Responsive adjust */
+@media (max-width: 991px) {
+  .d_overs_wrapper .d_over_list {
+    max-height: none; /* મોબાઈલમાં ફુલ લિસ્ટ દેખાય */
+  }
+}
+
+@media (max-width: 768px) {
+  .d_overs_wrapper .d_ball { width: 32px; height: 32px; font-size: 0.8rem; }
+  .d_overs_wrapper .d_over_item { padding: 15px; }
+  .d_overs_wrapper .d_ball_nb { font-size: 0.6rem !important; }
+}
+
+
+/* commentary section  */
+/* મેઈન રેપર ક્લાસ - CSS Overriding રોકવા માટે */
+.d_commentary_main_wrapper {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ટાઈમલાઈન આઈટમ સ્ટાઈલિંગ */
+.d_commentary_main_wrapper .d_commentary_item {
+  padding: 15px 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+/* ટાઈમ અને બેજ સેક્શન */
+.d_commentary_main_wrapper .d_event_time {
+  color: #888;
+  font-size: 0.9rem;
+  min-width: 50px;
+  display: inline-block;
+}
+
+.d_commentary_main_wrapper .d_event_badge {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+/* બેજ કલર્સ (Image મુજબ) */
+.d_commentary_main_wrapper .bg_toss { background-color: #007f3f; color: #fff; }
+.d_commentary_main_wrapper .bg_pitch { background-color: #007bff; color: #fff; }
+.d_commentary_main_wrapper .bg_squad { background-color: #dc3545; color: #fff; }
+.d_commentary_main_wrapper .bg_weather { background-color: #6c757d; color: #fff; }
+.d_commentary_main_wrapper .bg_preview { background-color: #6f42c1; color: #fff; }
+.d_commentary_main_wrapper .bg_arrival { background-color: #fd7e14; color: #fff; }
+
+/* ટાઈટલ અને ટેક્સ્ટ */
+.d_commentary_main_wrapper .d_event_title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  display: inline-block;
+}
+
+.d_commentary_main_wrapper .d_event_desc {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 8px;
+  padding-left: 0;
+}
+
+/* Responsive adjustment */
+@media (min-width: 768px) {
+  .d_commentary_main_wrapper .d_event_desc {
+      padding-left: 60px; /* ટાઈમ અને બેજ નીચેથી ટેક્સ્ટને હટાવવા માટે */
+  }
+}
+
+/* Custom Scrollbar for list */
+.d_commentary_main_wrapper .d_timeline_list {
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+.d_commentary_main_wrapper .d_timeline_list::-webkit-scrollbar { width: 5px; }
+.d_commentary_main_wrapper .d_timeline_list::-webkit-scrollbar-track { background: #000; }
+.d_commentary_main_wrapper .d_timeline_list::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+/* મુખ્ય રેપર */
+.d_ball_by_ball_wrapper {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ઓવર એન્ડ કાર્ડ (Grey Box) */
+.d_ball_by_ball_wrapper .d_over_end_card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin: 20px 0;
+}
+
+.d_ball_by_ball_wrapper .d_over_end_title {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #ccc;
+  text-transform: uppercase;
+}
+
+.d_ball_by_ball_wrapper .d_over_end_stats {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* સિંગલ બોલ આઇટમ */
+.d_ball_by_ball_wrapper .d_commentary_row {
+  display: flex;
+  align-items: anchor-center;
+  padding: 15px 0;
+  border-bottom: 1px solid #111;
+}
+
+.d_ball_by_ball_wrapper .d_ball_num {
+  min-width: 40px;
+  font-size: 0.9rem;
+  color: #888;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+/* બોલ આઈકોન/બબલ */
+.d_ball_by_ball_wrapper .d_ball_circle {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+  margin-right: 15px;
+  border: 1.5px solid;
+}
+
+/* કલર કોડિંગ (Image મુજબ) */
+.d_ball_by_ball_wrapper .ball_dot { background: #1a1a1a; border-color: #444; color: #888; }
+.d_ball_by_ball_wrapper .ball_run { background: #1a233a; border-color: #3b82f6; color: #fff; }
+.d_ball_by_ball_wrapper .ball_boundary { background: #3a3200; border-color: #ffcc00; color: #ffcc00; }
+.d_ball_by_ball_wrapper .ball_wicket { background: #3a1a1a; border-color: #dc3545; color: #fff; }
+
+.d_ball_by_ball_wrapper .d_ball_text {
+  font-size: 0.95rem;
+  color: #bbb;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* Responsive Desktop view */
+@media (min-width: 992px) {
+  .d_ball_by_ball_wrapper .d_commentary_row {
+      padding: 15px 40px; /* મોટા સ્ક્રીન પર થોડી જગ્યા વધારવા */
+  }
+}
+
+/* SquadsTabContent css  */
+/* Main Wrapper to prevent style overriding */
+.d_squads_root_container {
+  background-color: #080808;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+/* Toggle Buttons */
+.d_squads_root_container .d_team_toggle {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 5px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.d_squads_root_container .d_toggle_btn {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  background: transparent;
+  color: #888;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.d_squads_root_container .d_toggle_btn.active {
+  background-color: #000;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Section Headers */
+.d_squads_root_container .d_section_title {
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #888;
+  margin: 20px 0 15px 0;
+  letter-spacing: 1px;
+}
+
+/* Player Row */
+.d_squads_root_container .d_player_row {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.d_squads_root_container .d_player_no {
+  width: 30px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.d_squads_root_container .d_player_img_wrapper {
+  position: relative;
+  margin-right: 15px;
+}
+
+.d_squads_root_container .d_player_img {
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+  object-fit: cover;
+  background-color: #333;
+}
+
+.d_squads_root_container .d_player_info h6 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.d_squads_root_container .d_player_role {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.d_squads_root_container .d_playing_status {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: #555;
+}
+
+.d_squads_root_container .d_status_dot {
+  height: 8px;
+  width: 8px;
+  background-color: #ffcc00;
+  border-radius: 50%;
+  margin-left: auto;
+}
+
+/* Desktop Responsiveness */
+@media (min-width: 992px) {
+  .d_squads_root_container .d_player_list_grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* વેબ પર બે કોલમમાં દેખાશે */
+      gap: 0 40px;
+  }
+}
