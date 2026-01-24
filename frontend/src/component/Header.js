@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { FaHome, FaSearch, FaSignOutAlt, FaUser } from "react-icons/fa";
+import { FaHome, FaSearch, FaSignOutAlt, FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { MdOutlineSchedule } from "react-icons/md";
 import { RiMovie2Line } from "react-icons/ri";
 
@@ -11,7 +11,19 @@ export default function Header() {
   const [activeItem, setActiveItem] = useState("HOME");
   const [showLogoutDialog, setShowLogoutDialog] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+
+  // Close mobile menu when window is resized to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
 
   const menuItems = [
@@ -25,46 +37,75 @@ export default function Header() {
   const handleNavigation = (item) => {
     setActiveItem(item.name);
     setMenuOpen(false); // close menu on click
+    setIsMobileMenuOpen(false); // close mobile menu on click
     navigate(item.path);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
 
   return (
-    <div className="z_header">
-      {/* LOGO */}
-      <div className="z_logo" onClick={() => navigate("/")}>
-        LOGO
-      </div>
+    <>
+      {/* Mobile Menu Icon - Bottom Left */}
+      <button 
+        className="z_mobile_menu_btn"
+        onClick={toggleMobileMenu}
+        aria-label="Toggle menu"
+      >
+        {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+      </button>
 
-      {/* MENU */}
-      <div className="z_menu">
-        {menuItems.map((item) => (
-          <div
-            key={item.name}
-            className={`z_menu-item ${activeItem === item.name ? "z_active" : ""
-              }`}
-            onClick={() => handleNavigation(item)}
-          >
-            <div className="d-flex justify-content-center align-items-center">
-              {item.icon}
+      {/* Overlay when mobile menu is open */}
+      {isMobileMenuOpen && (
+        <div 
+          className="z_mobile_menu_overlay"
+          onClick={closeMobileMenu}
+        ></div>
+      )}
+
+      {/* Header Sidebar */}
+      <div className={`z_header ${isMobileMenuOpen ? 'z_header_open' : ''}`}>
+        {/* LOGO */}
+        <div className="z_logo" onClick={() => { navigate("/"); closeMobileMenu(); }}>
+          LOGO
+        </div>
+
+        {/* MENU */}
+        <div className="z_menu">
+          {menuItems.map((item) => (
+            <div
+              key={item.name}
+              className={`z_menu-item ${activeItem === item.name ? "z_active" : ""
+                }`}
+              onClick={() => handleNavigation(item)}
+            >
+              <div className="d-flex justify-content-center align-items-center">
+                {item.icon}
+              </div>
+              <span className="z_menu-item-name">
+                {item.name}
+              </span>
             </div>
-            <span className="z_menu-item-name">
-              {item.name}
-            </span>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* LOGOUT */}
-      <div className="z_logout">
-        <div
-          className="z_menu-item z_logout-item"
-          onClick={() => setShowLogoutDialog(true)}
-        >
-          <div className="d-flex justify-content-center align-items-center py-2">
-            <FaSignOutAlt />
+        {/* LOGOUT */}
+        <div className="z_logout">
+          <div
+            className="z_menu-item z_logout-item"
+            onClick={() => { setShowLogoutDialog(true); closeMobileMenu(); }}
+          >
+            <div className="d-flex justify-content-center align-items-center py-2">
+              <FaSignOutAlt />
+            </div>
+            <span className="z_menu-item-name">LOG OUT</span>
           </div>
-          <span className="z_menu-item-name">LOG OUT</span>
         </div>
       </div>
 
@@ -98,6 +139,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
