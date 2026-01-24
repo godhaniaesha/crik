@@ -244,10 +244,34 @@ body {
 
 /* Hero Section */
 .d_hero_section {
-  background: linear-gradient(180deg, #1a1a1a 0%, #0b0b0b 100%);
-  border: 1px solid #222;
+  background: url("../img/match-video.png") center/cover no-repeat;
   border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;   /* 🔥 IMPORTANT */
+  background-clip: padding-box;
 }
+
+
+/* Dark blur overlay */ 
+.d_hero_section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  border-radius: inherit;  /* 🔥 match corners */
+  z-index: 1;
+}
+.d_hero_section {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+/* Keep content above overlay */
+.d_hero_section > * {
+  position: relative;
+  z-index: 2;
+}
+
 
 .d_flag_circle {
   width: 80px;
@@ -380,4 +404,372 @@ body {
   .d_flag_circle { width: 60px; height: 60px; }
   .d_tab_item { padding: 10px 15px; font-size: 0.8rem; }
   .d_buy_pass_btn { width: 100%; }
+  .d_hero_section { border-radius: 0; }
+}
+
+
+/* Main Card Styling */
+/* Card Container */
+.d_score_card {
+  background-color: #0d0d0d; /* Deep Black */
+  border: 1px solid #222;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Header styling */
+.d_header_row {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid #222;
+}
+
+/* TABLE REDESIGN - Completely Transparent */
+.d_transparent_table {
+  background-color: transparent !important;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.d_transparent_table thead th {
+  background-color: transparent !important;
+  color: #666 !important; /* Muted headers */
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #222 !important;
+  padding: 15px 10px;
+}
+
+.d_transparent_table tbody td {
+  background-color: transparent !important;
+  color: #efefef !important;
+  padding: 16px 10px;
+  border-bottom: 1px solid #1a1a1a !important;
+  vertical-align: middle;
+}
+
+/* Highlight strike batter */
+.d_strike_indicator {
+  color: #ff4d4d;
+  margin-left: 4px;
+  font-weight: bold;
+}
+
+/* Run & Wicket Highlights */
+.d_highlight_bold {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.d_text_warning_custom { color: #ffcc00; }
+.d_text_cyan_custom { color: #00d4ff; }
+.d_ball_scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 6px;
+}
+
+/* hide scrollbar (optional) */
+.d_ball_scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.d_ball_scroll::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+
+/* Ball styling updates */
+.d_ball_circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: #0b0f1a;
+  border: 1.5px solid #1f3b73;
+  color: #e6ecff;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: all 0.2s ease;
+}
+
+.d_ball_circle:hover {
+  transform: scale(1.08);
+}
+
+/* Normal run */
+.d_ball_run {
+  border-color: #2563eb;
+  color: #9ec1ff;
+}
+
+/* Dot ball */
+.d_ball_dot {
+  border-color: #555;
+  color: #aaa;
+}
+
+/* Four */
+.d_ball_four {
+  background: #ffcc00;
+  color: #000;
+  border: none;
+  box-shadow: 0 0 12px rgba(255, 204, 0, 0.5);
+}
+
+/* Six */
+.d_ball_six {
+  border-color: #ff8c00;
+  color: #ffb14a;
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
+}
+
+/* No Ball */
+.d_ball_nb {
+  background: #0f5132;
+  color: #2cff9a;
+  border: 1.5px solid #2cff9a;
+  box-shadow: 0 0 8px rgba(44, 255, 154, 0.4);
+}
+
+/* Responsive scroll hide */
+/* .table-responsive::-webkit-scrollbar { display: none; } */
+/* Desktop specific adjustments */
+@media (min-width: 992px) {
+  .d_sticky_sidebar {
+    position: sticky;
+    top: 20px;
+  }
+}
+.d_key_canvas {
+  background: #262525;
+  color: #fff;
+  width: 320px;
+  border-left: 1px solid #222;
+}
+
+/* Header */
+.d_key_canvas_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  border-bottom: 1px solid #222;
+  background: linear-gradient(180deg, #141414, #0a0a0a);
+}
+
+/* Body */
+.d_key_canvas_body {
+  padding: 16px 18px;
+}
+
+/* Rows */
+.d_key_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #1f1f1f;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.d_key_row span:last-child {
+  color: #fff;
+  font-weight: 600;
+  text-align: right;
+  max-width: 60%;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .d_key_canvas {
+    width: 100%;
+  }
+}
+
+
+/* scorecard  */
+/* Squad Container Styles */
+.d_squad_card {
+  background-color: #000000;
+  border-radius: 12px;
+  border: 1px solid #2d2d2d;
+  overflow: hidden;
+}
+
+/* Tabs Styling */
+.d_tab_container {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 4px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.d_tab_btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #888;
+  padding: 8px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.d_tab_btn.active {
+  background-color: #333;
+  color: #fff;
+}
+
+/* List Styling */
+.d_section_title {
+  color: #888;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.d_player_item {
+  color: #fff;
+  padding: 6px 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.d_player_meta {
+  color: #666;
+  font-size: 0.85rem;
+  margin-left: 5px;
+}
+
+/* Match Info Section */
+.d_match_info_box {
+  background-color: #111;
+  border-radius: 12px;
+  /* margin-top: 25px; */
+}
+
+.d_info_header {
+  background-color: #1a1a1a;
+  padding: 12px 15px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.d_info_row {
+  padding: 12px 15px;
+  border-bottom: 1px solid #222;
+}
+
+.d_info_label {
+  color: #ffcc00; /* Yellow labels like image */
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.d_info_value {
+  color: #efefef;
+}
+
+/* Main wrapper to prevent overriding global styles */
+.d_scorecard_root {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    padding: 20px 0;
+}
+
+.d_scorecard_root .d_card {
+    background-color: #0c0c0c;
+    border: 1px solid #222;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+/* Typography */
+.d_scorecard_root .d_text_yellow { color: #ffcc00; }
+.d_scorecard_root .d_text_cyan { color: #00d4ff; }
+.d_scorecard_root .d_text_muted { color: #888; }
+
+/* Tables */
+.d_scorecard_root .table {
+    color: #fff;
+    margin-bottom: 0;
+    border-color: #222;
+}
+
+.d_scorecard_root .table thead th {
+    color: #888;
+    font-weight: 400;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #222;
+    padding: 12px 8px;
+}
+
+.d_scorecard_root .table tbody td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #1a1a1a;
+    vertical-align: middle;
+}
+
+/* Recent Balls Styling */
+.d_scorecard_root .d_ball_circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+.d_scorecard_root .d_ball_run { background: #1a2a4a; border: 1px solid #3b82f6; color: #fff; }
+.d_scorecard_root .d_ball_dot { background: #222; border: 1px solid #444; color: #888; }
+.d_scorecard_root .d_ball_four { background: #3a3200; border: 1px solid #ffcc00; color: #ffcc00; }
+
+/* Tabs */
+.d_scorecard_root .d_nav_tabs {
+    display: flex;
+    background: #111;
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 20px;
+}
+
+.d_scorecard_root .d_tab_btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #888;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.d_scorecard_root .d_tab_btn.active {
+    background: #222;
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .d_scorecard_root .d_ball_circle { width: 30px; height: 30px; font-size: 0.8rem; }
 }
