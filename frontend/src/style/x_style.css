@@ -675,3 +675,182 @@ body {
         font-size: 12px;
     }
 }
+
+/* =========================================================== SeariesDetail.js */
+
+/* ===================================================================
+   Point Table Styles
+   =================================================================== */
+
+.pt_table_wrapper {
+    background-color: #111111;
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.pt_table_scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pt_table_scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.pt_table_scroll::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+.pt_table_scroll::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 3px;
+}
+
+.pt_table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background-color: #1a1a1a;
+}
+
+.pt_table thead {
+    background-color: #121212;
+    border-bottom: none;
+}
+
+.pt_table thead tr th {
+    padding: 14px 10px;
+    font-weight: 500;
+    color: #A1A1A1;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+.pt_table tbody tr {
+    border-bottom: 1px solid #000;
+    background-color:  #000;
+    transition: all 0.3s ease;
+}
+.pt_table tbody tr:hover {
+    background-color: #070808e0;
+}
+
+.pt_table tbody tr td {
+    padding: 12px 10px;
+    color: #ffffff;
+}
+
+.pt_pos {
+    font-weight: 700;
+    color: #FF4444;
+    min-width: 40px;
+}
+
+.pt_team {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    text-align: left;
+    min-width: 100px;
+}
+
+.pt_flag {
+    width: 28px;
+    height: 20px;
+    border-radius: 3px;
+    object-fit: cover;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.pt_wins {
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+.pt_losses {
+    color: #FF5252;
+    font-weight: 600;
+}
+
+.pt_nrr {
+    color: #FFD700;
+    font-weight: 600;
+}
+
+.pt_pts {
+    color: #FF4444;
+    font-size: 15px;
+    min-width: 45px;
+}
+
+.pt_matches {
+    min-width: 100px;
+}
+
+.pt_match_results {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.pt_match_result {
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 11px;
+    transition: all 0.3s ease;
+}
+
+.pt_match_result.w {
+    background-color: #00D45B33;
+    color: #00D45B;
+    border: 1px solid #00D45B;
+}
+
+.pt_match_result.l {
+    background-color: #FF223E33;
+    color: #FF223E;
+    border: 1px solid #FF223E;
+}
+
+.pt_match_result:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .pt_table_wrapper {
+        margin: 10px;
+    }
+
+    .pt_table {
+        font-size: 12px;
+    }
+
+    .pt_table thead tr th {
+        padding: 10px 6px;
+        font-size: 10px;
+    }
+
+    .pt_table tbody tr td {
+        padding: 10px 6px;
+    }
+
+    .pt_flag {
+        width: 24px;
+        height: 18px;
+    }
+
+    .pt_match_result {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+}
