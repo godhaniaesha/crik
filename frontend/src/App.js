@@ -16,11 +16,6 @@ import HighlightsSlider from "./component/HighlightsSlider";
 import Main from "./container/Main";
 import MatchDetails from "./component/MatchDetails";
 import MySpace from "./pages/MySpace";
-import SubscriptionSettings from "./pages/SubscriptionSettings";
-import StreamingSettings from "./pages/StreamingSettings";
-import NotificationsSettings from "./pages/NotificationsSettings";
-import HelpSettings from "./pages/HelpSettings";
-import AboutSettings from "./pages/AboutSettings";
 import AccountSettings from "./pages/AccountSettings";
 
 function App() {
@@ -42,11 +37,6 @@ function App() {
           <Route path="/browse" element={<BrowseSeries />} />
           <Route path="/matchdetail" element={<MatchDetails />} />
           <Route path="/profile" element={<MySpace />} />
-          <Route path="/settings/subscription" element={<SubscriptionSettings />} />
-          <Route path="/settings/streaming" element={<StreamingSettings />} />
-          <Route path="/settings/notifications" element={<NotificationsSettings />} />
-          <Route path="/settings/help" element={<HelpSettings />} />
-          <Route path="/settings/about" element={<AboutSettings />} />
           <Route path="/account-settings" element={<AccountSettings />} />
         </Routes>
       </div>
