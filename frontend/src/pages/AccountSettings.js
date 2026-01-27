@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaChevronLeft, FaCamera, FaCopy, FaEdit, FaMobileAlt, FaTabletAlt, FaGlobe, FaTrash, FaUser, FaCheckCircle } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/z_style.css';
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/v1';
+
 export default function AccountSettings() {
   const navigate = useNavigate();
-  const [name, setName] = useState('John Doe');
-  const [mobile, setMobile] = useState('8866156118');
+  const [name, setName] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [email, setEmail] = useState('');
+  const [uid, setUid] = useState('');
   const [isEditingName, setIsEditingName] = useState(false);
   const [isEditingMobile, setIsEditingMobile] = useState(false);
-  const uid = '1424903002';
+  const [isEditingEmail, setIsEditingEmail] = useState(false);
+  const [loading, setLoading] = useState(true);
   // 🔴 Delete flow states
   const [showFinalConfirm, setShowFinalConfirm] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -42,6 +47,92 @@ export default function AccountSettings() {
 
   const handleMobileBlur = () => {
     setIsEditingMobile(false);
+    // Mobile number updates are typically not allowed as it's used for authentication
+    // If you need to update mobile, you'll need a separate endpoint with OTP verification
+  };
+
+  const handleEditEmail = () => {
+    setIsEditingEmail(true);
+  };
+
+  const handleEmailBlur = () => {
+    setIsEditingEmail(false);
+    // Validate email format
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+    updateProfile({ email });
+  };
+
+  useEffect(() => {
+    fetchUserProfile();
+  }, []);
+
+  const fetchUserProfile = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        navigate('/MobileLogin');
+        return;
+      }
+
+      const response = await fetch(`${API_BASE_URL}/auth/getProfile`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success && data.result?.user) {
+          const user = data.result.user;
+          setName(user.name || '');
+          setMobile(user.mobileNo || '');
+          setEmail(user.email || '');
+          setUid(user.uid || '');
+        }
+      } else if (response.status === 401) {
+        localStorage.removeItem('token');
+        navigate('/MobileLogin');
+      }
+    } catch (error) {
+      console.error('Error fetching profile:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const updateProfile = async (updates) => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+
+      const formData = new FormData();
+      if (updates.name !== undefined) formData.append('name', updates.name);
+      if (updates.email !== undefined) formData.append('email', updates.email);
+
+      const response = await fetch(`${API_BASE_URL}/auth/updateProfile`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success && data.result?.user) {
+          const user = data.result.user;
+          setName(user.name || '');
+          setEmail(user.email || '');
+        }
+      }
+    } catch (error) {
+      console.error('Error updating profile:', error);
+    }
   };
 
   const handleDeleteAccount = () => {
@@ -62,6 +153,14 @@ export default function AccountSettings() {
 
     // 👉 API call here if needed
   };
+
+  if (loading) {
+    return (
+      <div className="z_account_settings d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+        <div>Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="z_account_settings">
@@ -158,6 +257,32 @@ export default function AccountSettings() {
                       <>
                         <span className="z_account_info_value">{mobile}</span>
                         <button className="z_account_action_btn" onClick={handleEditMobile}>
+                          <FaEdit />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </div>
+                <div className="z_account_divider"></div>
+
+                {/* Email */}
+                <div className="z_account_info_item">
+                  <div className="z_account_info_label">Email</div>
+                  <div className="z_account_info_value_wrapper">
+                    {isEditingEmail ? (
+                      <input
+                        type="email"
+                        className="z_account_info_input"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        onBlur={handleEmailBlur}
+                        placeholder="Enter your email"
+                        autoFocus
+                      />
+                    ) : (
+                      <>
+                        <span className="z_account_info_value">{email || 'Not set'}</span>
+                        <button className="z_account_action_btn" onClick={handleEditEmail}>
                           <FaEdit />
                         </button>
                       </>

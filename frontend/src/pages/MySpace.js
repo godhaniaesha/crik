@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch, FaEdit, FaCrown, FaVideo, FaBell, FaQuestionCircle, FaUser, FaChevronRight, FaPlay, FaTimes, FaCheck, FaGlobe, FaCalendarAlt, FaFilm, FaPlus, FaMinus, FaCreditCard, FaPaypal, FaGooglePay, FaApplePay, FaWallet, FaBuilding, FaMobileAlt, FaMoneyBillWave } from 'react-icons/fa';
 import { SiPaytm, SiPhonepe, SiGooglepay, SiAmazonpay, SiSamsungpay, SiPaypal } from 'react-icons/si';
@@ -7,12 +7,15 @@ import '../style/z_style.css';
 import { IoCallOutline } from "react-icons/io5";
 import { IoMailOpenOutline } from "react-icons/io5";
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/v1';
 
 export default function MySpace() {
   const navigate = useNavigate();
   const [nickname, setNickname] = useState('Enter you nickname');
+  const [email, setEmail] = useState('');
+  const [uid, setUid] = useState('');
   const [isEditing, setIsEditing] = useState(false);
-  const uid = '1423903002';
+  const [loading, setLoading] = useState(true);
   const [couponApplied, setCouponApplied] = useState(false);
   const [showCouponModal, setShowCouponModal] = useState(false);
   const [selectedCoupon, setSelectedCoupon] = useState(null);
@@ -80,6 +83,77 @@ export default function MySpace() {
     setIsEditing(false);
     if (!nickname.trim()) {
       setNickname('Enter you nickname');
+    } else {
+      updateProfile({ name: nickname });
+    }
+  };
+
+  useEffect(() => {
+    fetchUserProfile();
+  }, []);
+
+  const fetchUserProfile = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        navigate('/MobileLogin');
+        return;
+      }
+
+      const response = await fetch(`${API_BASE_URL}/auth/getProfile`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success && data.result?.user) {
+          const user = data.result.user;
+          setNickname(user.name || 'Enter you nickname');
+          setEmail(user.email || '');
+          setUid(user.uid || '');
+        }
+      } else if (response.status === 401) {
+        localStorage.removeItem('token');
+        navigate('/MobileLogin');
+      }
+    } catch (error) {
+      console.error('Error fetching profile:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const updateProfile = async (updates) => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+
+      const formData = new FormData();
+      if (updates.name !== undefined) formData.append('name', updates.name);
+      if (updates.email !== undefined) formData.append('email', updates.email);
+
+      const response = await fetch(`${API_BASE_URL}/auth/updateProfile`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success && data.result?.user) {
+          const user = data.result.user;
+          setNickname(user.name || 'Enter you nickname');
+          setEmail(user.email || '');
+        }
+      }
+    } catch (error) {
+      console.error('Error updating profile:', error);
     }
   };
 
@@ -1154,6 +1228,14 @@ export default function MySpace() {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="z_sett_container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+        <div>Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="z_sett_container">
       {/* Header */}
@@ -1188,6 +1270,11 @@ export default function MySpace() {
               ) : (
                 <div className="z_sett_nickname" onClick={handleNicknameClick}>
                   {nickname}
+                </div>
+              )}
+              {email && (
+                <div className="z_sett_email" style={{ fontSize: '14px', color: '#999', marginTop: '4px' }}>
+                  {email}
                 </div>
               )}
             </div>

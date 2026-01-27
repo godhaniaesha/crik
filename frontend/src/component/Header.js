@@ -131,7 +131,14 @@ export default function Header() {
 
               <button
                 className="z_btn_logout"
-                onClick={() => navigate("/login")}
+                onClick={() => {
+                  // Clear authentication data
+                  localStorage.removeItem('token');
+                  localStorage.removeItem('user');
+                  localStorage.removeItem('mobileNo');
+                  setShowLogoutDialog(false);
+                  navigate("/MobileLogin");
+                }}
               >
                 Logout
               </button>
