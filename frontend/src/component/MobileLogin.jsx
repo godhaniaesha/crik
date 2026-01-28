@@ -3,14 +3,18 @@ import { FaMobileAlt } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/d_style.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { sendOTP } from "../store/slices/authSlice";
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/v1';
 
 const MobileLogin = () => {
   const [mobile, setMobile] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { error } = useSelector((state) => state.auth);
 
   // Redirect if already logged in
   useEffect(() => {

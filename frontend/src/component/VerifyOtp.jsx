@@ -2,8 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/d_style.css";
-import { useNavigate } from "react-router-dom";
-
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/v1';
 
@@ -200,7 +198,6 @@ const VerifyOtp = () => {
               >
                 {loading ? "Verifying..." : "Verify"}
               </button>
-
 
               <p className="small-text mt-3">
                 Didn't receive OTP?{" "}
