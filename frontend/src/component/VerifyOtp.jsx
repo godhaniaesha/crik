@@ -1,10 +1,17 @@
 import React, { useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/d_style.css";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { verifyOTP, sendOTP } from "../store/slices/authSlice";
 
 const VerifyOtp = () => {
-  const [otp, setOtp] = useState(["", "", "",""]);
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const inputsRef = useRef([]);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { loading, error, isAuthenticated } = useSelector((state) => state.auth);
+  const mobileNo = localStorage.getItem('mobileNo') || '';
 
   const handleChange = (value, index) => {
     if (!/^[0-9]?$/.test(value)) return;
@@ -13,7 +20,7 @@ const VerifyOtp = () => {
     newOtp[index] = value;
     setOtp(newOtp);
 
-    if (value && index < 3) {
+    if (value && index < 5) {
       inputsRef.current[index + 1].focus();
     }
   };
@@ -24,7 +31,43 @@ const VerifyOtp = () => {
     }
   };
 
+  const handleVerify = async () => {
+    const otpCode = otp.join('');
+    if (otpCode.length === 6 && mobileNo) {
+      try {
+        const result = await dispatch(verifyOTP({ mobileNo, otp: otpCode })).unwrap();
+        if (result.success) {
+          // Redirect to main page or dashboard
+          navigate("/main");
+        }
+      } catch (err) {
+        console.error("Error verifying OTP:", err);
+        // Error is already stored in Redux state
+      }
+    }
+  };
+
+  const handleResend = async () => {
+    if (mobileNo) {
+      try {
+        await dispatch(sendOTP(mobileNo)).unwrap();
+        // Reset OTP inputs
+        setOtp(["", "", "", "", "", ""]);
+        inputsRef.current[0]?.focus();
+      } catch (err) {
+        console.error("Error resending OTP:", err);
+      }
+    }
+  };
+
   const isOtpValid = otp.every((digit) => digit !== "");
+
+  // Redirect if already authenticated
+  React.useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/main");
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <div className="curved-login-page">
@@ -39,7 +82,14 @@ const VerifyOtp = () => {
             <div className="login-form">
 
               <h3>Verify OTP</h3>
-              <p>Enter the 4-digit code sent to your mobile</p>
+              <p>Enter the 6-digit code sent to your mobile</p>
+
+              {/* ERROR MESSAGE */}
+              {error && (
+                <div className="alert alert-danger" role="alert">
+                  {error.message || "Invalid OTP. Please try again."}
+                </div>
+              )}
 
               {/* OTP INPUTS */}
               <div className="d-flex gap-2 mt-3 mb-3">
@@ -54,27 +104,38 @@ const VerifyOtp = () => {
                     onChange={(e) =>
                       handleChange(e.target.value, index)
                     }
-                    onKeyDown={(e) =>
-                      handleBackspace(e, index)
-                    }
+                    onKeyDown={(e) => {
+                      handleBackspace(e, index);
+                      if (e.key === "Enter" && isOtpValid) {
+                        handleVerify();
+                      }
+                    }}
                   />
                 ))}
               </div>
 
               <button
                 className="login-btn"
-                disabled={!isOtpValid}
+                disabled={!isOtpValid || loading}
+                onClick={handleVerify}
                 style={{
-                  opacity: isOtpValid ? 1 : 0.5,
-                  cursor: isOtpValid ? "pointer" : "not-allowed",
+                  opacity: isOtpValid && !loading ? 1 : 0.5,
+                  cursor: isOtpValid && !loading ? "pointer" : "not-allowed",
                 }}
               >
-                Verify
+                {loading ? "Verifying..." : "Verify"}
               </button>
 
               <p className="small-text mt-3">
                 Didn’t receive OTP?{" "}
-                <a href="#" className="help-link text-decoration-none">
+                <a 
+                  href="#" 
+                  className="help-link text-decoration-none"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleResend();
+                  }}
+                >
                   Resend
                 </a>
               </p>
