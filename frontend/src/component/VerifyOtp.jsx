@@ -1,10 +1,14 @@
 import React, { useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/d_style.css";
+import { useNavigate } from "react-router-dom";
+
 
 const VerifyOtp = () => {
-  const [otp, setOtp] = useState(["", "", "",""]);
+  const [otp, setOtp] = useState(["", "", "", ""]);
   const inputsRef = useRef([]);
+  const navigate = useNavigate();
+
 
   const handleChange = (value, index) => {
     if (!/^[0-9]?$/.test(value)) return;
@@ -68,9 +72,15 @@ const VerifyOtp = () => {
                   opacity: isOtpValid ? 1 : 0.5,
                   cursor: isOtpValid ? "pointer" : "not-allowed",
                 }}
+                onClick={() => {
+                  if (isOtpValid) {
+                    navigate("/main");
+                  }
+                }}
               >
                 Verify
               </button>
+
 
               <p className="small-text mt-3">
                 Didn’t receive OTP?{" "}

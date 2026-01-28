@@ -241,26 +241,26 @@ export default function AccountSettings() {
         <>
           <div className="modal fade show d-block">
             <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content">
+              <div className="modal-content z_delete_modal">
 
-                <div className="modal-header">
-                  <h5 className="modal-title">Log out device</h5>
+                <div className="modal-header border-0">
+                  <h5 className="modal-title text-white">Log out device</h5>
                   <button
-                    className="btn-close"
+                    className="btn-close btn-close-white"
                     onClick={() => setShowLogoutModal(false)}
                   ></button>
                 </div>
 
-                <div className="modal-body">
+                <div className="modal-body text-secondary">
                   <p>
                     Are you sure you want to log out from{" "}
                     <b>{selectedDevice}</b>?
                   </p>
                 </div>
 
-                <div className="modal-footer">
+                <div className="modal-footer border-0">
                   <button
-                    className="btn btn-secondary"
+                    className="btn btn-outline-light"
                     onClick={() => setShowLogoutModal(false)}
                   >
                     Cancel

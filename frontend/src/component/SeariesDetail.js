@@ -111,6 +111,25 @@ export default function SeariesDetail() {
     ];
     return (
         <>
+            <style>{`
+       .d_tabs_scroll_wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: black;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+
+.d_tabs_container {
+  overflow-x: auto;    /* mobile ma horizontal scroll */
+  white-space: nowrap;
+}
+.z_schedule {
+  overflow: visible; /* sticky kaam karse */
+}
+
+        `}</style>
             <div className='z_schedule'>
                 {/* Banner Section */}
                 <div className="banner_container">
@@ -126,12 +145,12 @@ export default function SeariesDetail() {
                             >
                                 <div className="banner_overlay"></div>
                                 <div className="banner_content">
-                                    <img src={banner.icon} style={{height:"70px", width:"70px"}} alt="" className="banner_icon" />
+                                    <img src={banner.icon} style={{ height: "70px", width: "70px" }} alt="" className="banner_icon" />
                                     <h2 className="banner_title">{banner.title}</h2>
                                     <p className="banner_title">{banner.year}</p>
                                     <div className="banner_info d-flex flex-">
-                                        <span className="banner_type">{banner.type}</span><RxDotFilled  className='mt-1'/>
-                                        <span className="banner_date">{banner.date}</span><RxDotFilled  className='mt-1'/>
+                                        <span className="banner_type">{banner.type}</span><RxDotFilled className='mt-1' />
+                                        <span className="banner_date">{banner.date}</span><RxDotFilled className='mt-1' />
                                         <span className="banner_match">{banner.match}</span>
                                     </div>
                                     <div>
@@ -415,7 +434,7 @@ export default function SeariesDetail() {
                                 <h2 className="x_series_title">Videos</h2>
                                 <div className="row">
                                     {videos.map((video, index) => (
-                                       <div className="col-12 col-md-6 col-xl-4 mb-3" key={index}>
+                                        <div className="col-12 col-md-6 col-xl-4 mb-3" key={index}>
                                             <div className="d_highlight_card">
                                                 <div className="d_thumb_wrapper">
                                                     <img

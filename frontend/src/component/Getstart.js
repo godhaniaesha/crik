@@ -1,9 +1,13 @@
 import React from 'react'
 import '../style/x_style.css';
 import { FaArrowRight } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+
 function Getstart() {
-  return (
-      <section className="x_hero_section">
+    const navigate = useNavigate();
+
+    return (
+        <section className="x_hero_section">
             <div className="x_hero_overlay"></div>
 
             <div className="x_hero_content">
@@ -16,12 +20,16 @@ function Getstart() {
                     and battery efficiency.
                 </p>
 
-                <button className="x_hero_btn">
-                    Get Started <FaArrowRight className='ms-2'/>
+                <button
+                    className="x_hero_btn"
+                    onClick={() => navigate("/main")}
+                >
+                    Get Started <FaArrowRight className="ms-2" />
                 </button>
+
             </div>
         </section>
-  )
+    )
 }
 
 export default Getstart
