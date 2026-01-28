@@ -21,6 +21,7 @@ import Search from "./component/Search";
 import Series from "./component/Series";
 import MySpace from "./pages/MySpace";
 import AccountSettings from "./pages/AccountSettings";
+import MatchVideo from "./component/MatchVideo";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/slide" element={<Heroslide />} />
           <Route path="/browse" element={<BrowseSeries />} />
           <Route path="/matchdetail" element={<MatchDetails />} />
+          <Route path="/matchvideo" element={<MatchVideo />} />
           <Route path="/search" element={<Search />} />
           <Route path="/series" element={<Series />} />
 

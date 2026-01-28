@@ -1,0 +1,465 @@
+/* Video Player Styles */
+.h_video_player_wrapper {
+  position: relative;
+  width: 100%;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  min-height: 400px;
+}
+
+.h_video_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.h_video_element {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.h_video_placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.h_video_placeholder::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/cricket-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+}
+
+/* Video Controls */
+.h_video_controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.h_video_controls.h_show_controls {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.h_video_controls_backdrop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.4) 35%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top Controls */
+.h_top_controls {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.h_control_btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+  pointer-events: all;
+}
+
+.h_control_btn:hover {
+  opacity: 0.8;
+}
+
+.h_control_btn img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Center Controls */
+.h_center_controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex: 1;
+}
+
+.h_play_pause_btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  pointer-events: all;
+}
+
+.h_play_pause_btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.h_nav_btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+  pointer-events: all;
+}
+
+.h_nav_btn:hover {
+  opacity: 0.8;
+}
+
+/* Bottom Controls */
+.h_bottom_controls {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 15px 15px;
+}
+
+.h_timeline_container {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.h_timeline {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+}
+
+.h_timeline_progress {
+  height: 100%;
+  background: #ffc107;
+  border-radius: 2px;
+  position: relative;
+  transition: width 0.1s linear;
+}
+
+.h_timeline_live .h_timeline_progress {
+  width: 100% !important;
+}
+
+.h_timeline_scrubber {
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: #ffc107;
+  border-radius: 50%;
+  cursor: grab;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  touch-action: none;
+}
+
+.h_timeline_scrubber:active {
+  cursor: grabbing;
+}
+
+.h_control_bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.h_control_bar.h_control_bar_live {
+  justify-content: flex-end;
+}
+
+.h_time_display {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.h_live_section {
+  display: flex;
+  align-items: center;
+}
+
+.h_live_indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.h_live_indicator::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #ff0000;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Live minimal overlay - only LIVE indicator when playing */
+.h_live_minimal_overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.h_live_minimal_overlay .h_live_indicator {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 12px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.h_go_live_btn {
+  background: #222222;
+  border: none;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  pointer-events: all;
+}
+
+.h_go_live_btn:hover {
+  background: rgba(128, 128, 128, 1);
+  transform: translateY(-1px);
+}
+
+/* Video Settings – video ની અંદર (fullscreen માં પણ) */
+.h_settings_overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  backdrop-filter: blur(4px);
+}
+
+.h_settings_modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  max-width: 85%;
+  background: #1a1a1a;
+  z-index: 9999;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.h_settings_modal.h_show {
+  transform: translateX(0);
+}
+
+.h_settings_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.h_settings_title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.h_settings_close_btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.h_settings_close_btn:hover {
+  opacity: 0.7;
+}
+
+.h_settings_content {
+  padding: 10px 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.h_quality_option {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.h_quality_option:hover {
+  background-color: #2a2a2a;
+}
+
+.h_quality_option.h_selected {
+  background-color: #2a2a2a;
+}
+
+.h_check_icon {
+  color: #ffc107;
+  margin-right: 15px;
+  min-width: 20px;
+}
+
+.h_quality_option span {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .h_video_player_wrapper {
+    border-radius: 0;
+    aspect-ratio: 16/9;
+    min-height: 250px;
+  }
+
+  .h_play_pause_btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .h_center_controls {
+    gap: 20px;
+  }
+
+  .h_nav_btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .h_play_pause_btn svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .h_top_controls {
+    gap: 10px;
+  }
+
+  .h_control_btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .h_control_btn img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .h_video_controls {
+    padding: 15px;
+  }
+
+  .h_bottom_controls {
+    padding: 0 0 10px;
+  }
+
+  .h_control_bar {
+    padding: 0 10px;
+  }
+
+  /* Yellow timeline: video ની full width, નીચે જ — 768px થી 0 */
+
+  .h_timeline {
+    width: 100%;
+  }
+
+  .h_settings_modal {
+    width: 280px;
+    max-width: 90%;
+  }
+
+  .h_settings_header {
+    padding: 15px;
+  }
+
+  .h_settings_title {
+    font-size: 16px;
+  }
+
+  .h_quality_option {
+    padding: 12px 15px;
+  }
+
+  .h_quality_option span {
+    font-size: 14px;
+  }
+}
