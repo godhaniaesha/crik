@@ -37,13 +37,14 @@ const Footer = () => {
               <i className="fab fa-twitter">𝕏</i>
             </a>
           </div>
+          <div className='text-dark'> .</div>
         </div>
       </div>
 
       {/* Bottom Footer */}
       <div className="footer-bottom">
         <div className="footer-copyright">
-          © 2026 STAR. All Rights Reserved.
+          © 2026 CRICK. All Rights Reserved.
         </div>
 
         <div className="footer-links">
