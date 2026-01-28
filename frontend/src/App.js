@@ -22,6 +22,7 @@ import Series from "./component/Series";
 import MySpace from "./pages/MySpace";
 import AccountSettings from "./pages/AccountSettings";
 import SeariesDetail from "./component/SeariesDetail";
+import Footer from "./component/Footer";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path="/account-settings" element={<AccountSettings />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }
