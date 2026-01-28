@@ -197,11 +197,6 @@ const VerifyOtp = () => {
                   opacity: isOtpValid && !loading ? 1 : 0.5,
                   cursor: isOtpValid && !loading ? "pointer" : "not-allowed",
                 }}
-                onClick={() => {
-                  if (isOtpValid) {
-                    navigate("/main");
-                  }
-                }}
               >
                 {loading ? "Verifying..." : "Verify"}
               </button>
